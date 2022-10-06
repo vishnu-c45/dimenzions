@@ -1,0 +1,967 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="banner">
+        <div class="inner">
+            <b>
+                <h1 class="text-light headtext">Create your own</h1>
+            </b>
+            <b>
+                <h1 style="color: rgb(255, 5, 72);" class="headtext">3D Models</h1>
+            </b>
+            <div class="my-3">
+                <a href="{% url 'model' %}"
+                   class="btn mx-2"
+                   style="background-color: rgb(255, 5, 72);
+                          color: white;">Buy 3D Model</a>
+                <a href="{% url 'freelancer'%}"
+                   class="btn mx-2 text-light"
+                   style="background-color: gray;">Frelancer</a>
+            </div>
+        </div>
+        <style>
+            .banner {
+                height: 80vh;
+                background-image: url('{% static 'images/assn.png' %}');
+                background-size: 100% 100%;
+                background-attachment: fixed;
+
+
+            }
+
+            .headtext {
+                font-size: 70px;
+                font-weight: 600;
+            }
+
+            .inner {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            @media only screen and (max-width:800px) {
+
+                .headtext {
+                    font-size: 40px;
+                    font-weight: 600;
+                }
+
+                .banner {
+                    height: 50vh;
+
+                    background-size: cover;
+
+
+
+
+                }
+            }
+        </style>
+    </section>
+    <section class=" pinkbox  w-100 ">
+        <div class="pinkbox0 container">
+            <div class="row  text-light p-0 m-0">
+                <div class="col-lg-3  flex flex-column pbox">
+                    <i class="fa-solid fa-mobile-screen p-3" style="font-size: 45px;"></i>
+                    <h4>Responsive Design</h4>
+                    <p style="text-align: center;" class="p-3">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Atque temporibus, at non harum sunt nostrum deserunt debitis, excepturi, quia est dignissimos?
+                        Officia sapiente ex non dicta possimus facilis quisquam nisi?
+                    </p>
+                </div>
+                <div class="col-lg-3  flex flex-column  pbox p-4">
+                    <i class="fa-solid fa-gem p-3" style="font-size: 45px;"></i>
+                    <h4>Award Winning</h4>
+                    <p style="text-align: center;" class="p-3">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Atque temporibus, at non harum sunt nostrum deserunt debitis, excepturi, quia est dignissimos?
+                        Officia sapiente ex non dicta possimus facilis quisquam nisi?
+                    </p>
+                </div>
+                <div class="col-lg-3 flex flex-column pbox p-4">
+                    <i class="fa-solid fa-laptop p-3" style="font-size: 45px;"></i>
+                    <h4>Video tutorial</h4>
+                    <p style="text-align: center;" class="p-3">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Atque temporibus, at non harum sunt nostrum deserunt debitis, excepturi, quia est dignissimos?
+                        Officia sapiente ex non dicta possimus facilis quisquam nisi?
+                    </p>
+                </div>
+                <div class="col-lg-3 flex flex-column pbox p-4">
+                    <i class="fa-solid fa-gift p-3" style="font-size: 45px;"></i>
+                    <h4>Awesome Gift</h4>
+                    <p style="text-align: center;" class="p-3">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Atque temporibus, at non harum sunt nostrum deserunt debitis, excepturi, quia est dignissimos?
+                        Officia sapiente ex non dicta possimus facilis quisquam nisi?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <style>
+            .pinkbox {
+                background-color: rgb(255, 5, 72);
+                background-image: url('{% static 'images/triangle.png' %}');
+                background-size: contain;
+            }
+
+            .pbox:hover {
+                background-color: rgba(0, 0, 0, 0.3);
+                transition: 1s;
+            }
+        </style>
+    </section>
+    <section class="tabs m-3">
+        <ul class="nav nav-tabs d-flex align-items-center justify-content-center border-0"
+            id="myTab"
+            role="tablist">
+            <li class="nav-item  blink0" role="presentation">
+                <button class="nav-link active px-5 blink"
+                        id="home-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#new"
+                        type="button"
+                        role="tab"
+                        aria-controls="new"
+                        aria-selected="true">
+                    <h4>New</h4>
+                </button>
+            </li>
+            <li class="nav-item blink0" role="presentation">
+                <button class="nav-link px-5 blink"
+                        id="profile-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#special"
+                        type="button"
+                        role="tab"
+                        aria-controls="special"
+                        aria-selected="false">
+                    <h4>Special</h4>
+                </button>
+            </li>
+            <li class="nav-item  blink0" role="presentation">
+                <button class="nav-link px-5 blink"
+                        id="contact-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#collection"
+                        type="button"
+                        role="tab"
+                        aria-controls="collection"
+                        aria-selected="false">
+                    <h4>Collection</h4>
+                </button>
+            </li>
+            <li class="nav-item blink0" role="presentation">
+                <button class="nav-link px-5 blink"
+                        id="contact-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#featured"
+                        type="button"
+                        role="tab"
+                        aria-controls="featured"
+                        aria-selected="false">
+                    <h4>featured</h4>
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content border-0" id="myTabContent">
+            <div class="tab-pane fade show active container"
+                 id="new"
+                 role="tabpanel"
+                 aria-labelledby="home-tab">
+                <div class="cards-list">
+                    <a href="{% url 'product'%}"
+                       class="card1 bg-light shadow-lg"
+                       data-aos="fade-up"
+                       data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="{% static 'images/model.png'%}" class="card-img-top" alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">Creature Walk</h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">100.0 Rs</h5>
+                                </div>
+                                <div class="right">
+                                    <h5>3D</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{% url 'product'%}"
+                    class="card1 bg-light shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="50">
+                     <div class="card border-0 " style="height: 100%; width:100%;">
+                         <img src="{% static 'images/model.png'%}" class="card-img-top" alt="...">
+                         <div class="card-body d-flex container">
+                             <div class="left">
+                                 <h5 class="card-title text-dark">Creature Walk</h5>
+                                 <div class="star">
+                                     <span class="fa fa-star checked"></span>
+                                     <span class="fa fa-star checked"></span>
+                                     <span class="fa fa-star checked"></span>
+                                     <span class="fa fa-star "></span>
+                                     <span class="fa fa-star"></span>
+                                 </div>
+                                 <h5 class="price my-2">100.0 Rs</h5>
+                             </div>
+                             <div class="right">
+                                 <h5>3D</h5>
+                             </div>
+                         </div>
+                     </div>
+                 </a>
+
+                    <a href="{% url 'product'%}"
+                       class="card1 bg-light shadow-lg"
+                       data-aos="fade-up"
+                       data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="{% static 'images/model.png'%}" class="card-img-top" alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">Creature Walk</h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">100.0 Rs</h5>
+                                </div>
+                                <div class="right">
+                                    <h5>3D</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    
+                    
+                </div>
+            </div>
+            <div class="tab-pane fade"
+                 id="special"
+                 role="tabpanel"
+                 aria-labelledby="profile-tab">
+                <div class="cards-list container">
+                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Creature Walk
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Creature Walk
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Creature Walk
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade"
+                 id="collection"
+                 role="tabpanel"
+                 aria-labelledby="contact-tab">
+                <div class="cards-list container">
+                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Card title
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Card title
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Card title
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade"
+                 id="featured"
+                 role="tabpanel"
+                 aria-labelledby="contact-tab">
+                <div class="cards-list">
+                    <div class="card1  shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 " style="height: 100%; width:100%;">
+                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                                 class="card-img-top"
+                                 alt="...">
+                            <div class="card-body d-flex container">
+                                <div class="left">
+                                    <h5 class="card-title text-dark">
+                                        Card title
+                                    </h5>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star "></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                    <h5 class="price my-2">
+                                        100.0 Rs
+                                    </h5>
+                                </div>
+                                <div class="right">
+                                    <h5>
+                                        3D
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            a{
+                text-decoration: none;
+                color: gray;
+            }
+            .left {
+                width: 50%;
+
+            }
+
+            .right {
+                width: 50%;
+            }
+
+            .right h5 {
+                text-align: end;
+            }
+
+            .nav-item button {
+                color: black;
+            }
+
+            .nav-item:hover button {
+                color: rgb(255, 5, 72);
+                border: none;
+            }
+
+
+
+            .topclr {
+
+                font-weight: 600;
+                color: rgb(176, 176, 176);
+
+            }
+
+            .topclr:hover {
+                color: rgb(255, 5, 72);
+
+            }
+
+            .nav-tabs .nav-item .nav-link {
+                background-color: white color: gray;
+            }
+
+            .nav-tabs .nav-item .nav-link.active {
+                color: rgb(255, 5, 72);
+                border: none;
+            }
+
+            .tab-content {
+                border: 1px solid #dee2e6;
+                border-top: transparent;
+                padding: 15px;
+            }
+
+            .tab-content .tab-pane {
+                background-color: #FFF;
+                color: gray;
+                min-height: 200px;
+                height: auto;
+            }
+
+            .card img {}
+
+            .card1 {
+                background-color: rgba(0, 0, 0, 3);
+                margin: 10px auto;
+                width: 400px;
+                min-height: 350px;
+
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                cursor: pointer;
+                transition: 0.4s;
+            }
+
+
+            .star {
+                color: rgb(228, 228, 228);
+                text-shadow: 1px 1px 1px black;
+            }
+
+            .checked {
+                color: rgb(255, 5, 72);
+            }
+
+            .price {
+                color: gray;
+            }
+
+            @media only screen and (max-width:800px) {
+                .blink {
+                    width: 100%;
+                }
+
+                .blink0 {
+                    width: 100%;
+                }
+                .left{
+                    height: auto;
+
+                }
+                .right{
+                    height: auto;
+                    
+                }
+                .card1{
+                    min-height: auto;
+                }
+
+
+            }
+        </style>
+    </section>
+    <section class="designers">
+        <div class="cover1">
+            <div class="left2 p-lg-5 p-4 text-center">
+                <h3 style="font-weight: 600;">
+                    TOP DESIGNERS OF THIS WEEK
+                </h3>
+                <P>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque suscipit beatae quas.
+                </P>
+                <div class="row container-fluid">
+                    <div class="col-lg-4 flexy my-2">
+                        <img src="https://png.pngitem.com/pimgs/s/627-6275754_chad-profile-pic-profile-photo-circle-png-transparent.png"
+                             alt=""
+                             width="150px"
+                             class="rounded rounded-circle">
+                        <h6>
+                            name
+                        </h6>
+                        <p style=" color: rgb(255, 5, 72);">
+                            View More
+                        </p>
+                    </div>
+                    <div class="col-lg-4 flexy">
+                        <img src="https://png.pngitem.com/pimgs/s/627-6275754_chad-profile-pic-profile-photo-circle-png-transparent.png"
+                             alt=""
+                             width="150px"
+                             class="rounded rounded-circle">
+                        <h6>
+                            name
+                        </h6>
+                        <p style=" color: rgb(255, 5, 72);">
+                            View More
+                        </p>
+                    </div>
+                    <div class="col-lg-4 flexy">
+                        <img src="https://png.pngitem.com/pimgs/s/627-6275754_chad-profile-pic-profile-photo-circle-png-transparent.png"
+                             alt=""
+                             width="150px"
+                             class="rounded rounded-circle">
+                        <h6>
+                            name
+                        </h6>
+                        <p style=" color: rgb(255, 5, 72);">
+                            View More
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="right2 container-fluid">
+                <img src="{% static 'images/ptree.png' %}" class="tree " alt="">
+            </div>
+        </div>
+        <style>
+            .right2 .tree {
+                width: 550px;
+                margin-top: -120px;
+
+            }
+
+            .flexy {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .designers {
+
+
+                background-image: url('https://img.freepik.com/free-vector/3d-shapes-sky-tones-background_52683-35351.jpg?w=2000');
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .cover1 {
+                background-color: rgba(255, 255, 255, 0.6);
+                width: 100%;
+                height: 100%;
+                display: flex;
+
+            }
+
+            .left2 {
+                width: 60%;
+            }
+
+            .right2 {
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .right2 img {
+                width: 400px;
+            }
+
+            @media only screen and (max-width:800px) {
+                .cover1 {
+                    display: block;
+                }
+
+                .left2 {
+                    width: 100%;
+                }
+
+                .right2 {
+                    width: 100%;
+                }
+
+                .designers {
+                    height: auto;
+                }
+
+                .right2 .tree {
+                    width: 250px;
+                    margin-top: auto;
+                    display: none;
+
+                }
+
+            }
+        </style>
+    </section>
+    <section class="grayback " style="background-color: rgb(97, 96, 99);">
+        <section class="p-lg-5 ">
+            <h2 style="font-weight: 600;
+                       color: rgb(255, 255, 255);"
+                class="text-center pt-4 p-lg-0 "
+                data-aos="fade-up"
+                data-aos-delay="50">
+                BROWSE OUR CATEGORIES
+            </h2>
+            <div class="flexy w-100">
+                <div style="background-color: white;height: 2px; width: 20%;">
+                </div>
+            </div>
+            <div class="cards-list">
+                <a class="card3" href="{% url 'model'%}"
+                     style="background-image: url('{% static 'images/car-777159_960_720.jpg'%}'); ">
+                    <div class="dark1 flex flex-column">
+                        <h4 class="text-light">
+                            3D ARTISTS
+                        </h4>
+                        <p style="color: gray;">
+                            300 Products
+                        </p>
+                    </div>
+                </a>
+                <a class="card3" href="{% url 'model'%}"
+                style="background-image: url('{% static 'images/Moon-Photoshop.jpg'%}'); ">
+               
+                    <div class="dark1 flex flex-column">
+                        <h4 class="text-light">
+                            PHOTOSHOP
+                        </h4>
+                        <p style="color: gray;">
+                            300 Products
+                        </p>
+                    </div>
+                </a>
+                <a class="card3" href="{% url 'model'%}"
+                style="background-image: url('{% static 'images/1642762135_resized-image.jpg'%}'); ">
+                 
+                    <div class="dark1 flex flex-column">
+                        <h4 class="text-light">
+                            UI DESIGN
+                        </h4>
+                        <p style="color: gray;">
+                            300 Products
+                        </p>
+                    </div>
+                </a>
+                <a class="card3" href="{% url 'model'%}"
+                style="background-image: url('{% static 'images/RoomSketcher-High-Quality-3D-Floor-Plans.jpg'%}'); ">
+                     
+                    <div class="dark1 flex flex-column">
+                        <h4 class="text-light">
+                            HOUSE PLANS
+                        </h4>
+                        <p style="color: gray;">
+                            300 Products
+                        </p>
+                    </div>
+                </a>
+                <a class="card3" href="{% url 'model'%}"
+                style="background-image: url('{% static 'images/b-letter-boutique-logo-design-159417325.jpg'%}'); ">
+               
+                    <div class="dark1 flex flex-column">
+                        <h4 class="text-light">
+                            LOGO CREATION
+                        </h4>
+                        <p style="color: gray;">
+                            300 Products
+                        </p>
+                    </div>
+                </a>
+                <a class="card3" href="{% url 'model'%}"
+                
+                style="background-image: url('{% static 'images/images (6) 1.png'%}'); ">
+ 
+                    <div class="dark1 flex flex-column">
+                        <h4 class="text-light">
+                            DRAWINGS 
+                        </h4>
+                        <p style="color: gray;">
+                            300 Products
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <style>
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            .card3 {
+                margin: 30px auto;
+                width: 400px;
+                height: 400px;
+
+                background-size: 100% 100%;
+                cursor: pointer;
+                transition: 0.4s;
+                border-radius: 20px;
+            }
+
+            .dark1 {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 20px;
+            }
+
+
+            .card3:hover .dark1 {
+                background-color: rgba(0, 0, 0, 0.8);
+                transition: 1s;
+
+            }
+
+            @media all and (max-width: 800px) {
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+
+                .card3 {
+                    margin: 10px auto;
+                    width: 90%;
+                    height: 250px;
+                }
+
+
+
+            }
+        </style>
+    </section>
+    <section class="soon">
+        <div class="left4">
+            <div style="background-color: rgba(0,0,0,.5);
+                        height: 100%;
+                        width: 100%;"
+                 class="flexy">
+                <h2 class="text-light" style="font-weight: 600;">
+                    COMING SOON !
+                </h2>
+            </div>
+        </div>
+        <div class="right4 p-4">
+            <H4 class="text-light" style="font-weight: 600;">
+                SIGNUP FOR NEWSLETTER
+            </H4>
+            <form class="d-flex mt-3">
+                <input class="px-3 me-0 rounded-0 border-0 search"
+                       type="search"
+                       placeholder="Search"
+                       aria-label="Search">
+                <button class=" p-2 rocket"
+                        style="background-color: white;
+                               border: 0;"
+                        type="submit">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+        <style>
+            .soon {
+                display: flex;
+            }
+
+            .rocket {
+                color: rgb(255, 5, 72);
+
+            }
+
+            .search {
+                width: 450px;
+            }
+
+            .soon {
+                height: 30vh;
+            }
+
+            .left4 {
+                background-image: url('{%static 'images/soon2.png' %}');
+                background-size: 100% 100%;
+                
+                background-repeat: no-repeat;
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .right4 {
+                background-color: rgb(255, 5, 72);
+                background-image: url('{%static 'images/triangle.png' %}');
+                background-size: cover;
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+            }
+
+            @media all and (max-width: 800px) {
+                .right4 {
+                    width: 100%;
+                }
+
+                .left4 {
+                    width: 100%;
+                    height: 200px;
+                    background-size: cover;
+                }
+
+                .search {
+                    width: auto;
+                }
+
+                .soon {
+                    height: auto;
+                }
+
+                .soon {
+                    display: block;
+                }
+            }
+        </style>
+    </section>
+    {% endblock %}

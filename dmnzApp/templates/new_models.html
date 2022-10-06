@@ -1,0 +1,632 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="banner">
+        <div class="inner">
+            <b>
+                <h3 class="text-light headtext" style="font-family: '', sans-serif; ">
+                    <span style="color: rgb(255, 5, 72);">3D</span> ARTISTS
+                </h3>
+            </b>
+        </div>
+        <style>
+            .banner {
+                height: 50vh;
+                background-image: url('https://c4.wallpaperflare.com/wallpaper/995/152/891/assassins-creed-4k-windows-wallpaper-preview.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+
+
+            }
+
+            .headtext {
+                font-size: 50px;
+                font-weight: 600;
+            }
+
+            .inner {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            @media all and (max-width: 500px) {
+                .banner {
+                    height: 30vh;
+
+
+                }
+
+                .headtext {
+                    font-size: 30px;
+                }
+            }
+        </style>
+    </section>
+    <section class="dropdowns container">
+        <nav class="navbar navbar-expand-lg navbar-light mt-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="">
+                        <i class="fa-solid fa-filter"></i>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <div class="dropdown ">
+                                <a class="btn btn-outline-secondary abc"
+                                   href="#"
+                                   role="button"
+                                   id="dropdownMenuLink"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Price <i class="fa-solid fa-chevron-down ps-5"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
+                            <div class="dropdown">
+                                <a class="btn btn-outline-secondary abc"
+                                   href="#"
+                                   role="button"
+                                   id="dropdownMenuLink"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Formats <i class="fa-solid fa-chevron-down  ps-lg-2"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
+                            <div class="dropdown">
+                                <a class="btn btn-outline-secondary abcd"
+                                   href="#"
+                                   role="button"
+                                   id="dropdownMenuLink"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Quantity <i class="fa-solid fa-chevron-down ps-lg-2"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item mt-3 mt-lg-0">
+                            <div class="dropdown ">
+                                <a class="btn btn-outline-secondary abcd"
+                                   href="#"
+                                   role="button"
+                                   id="dropdownMenuLink"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Sort Best Match <i class="fa-solid fa-chevron-down "></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <style>
+            .abc {
+                width: 150px;
+            }
+
+            .abcd {
+                width: 200px;
+            }
+
+            @media all and (max-width: 500px) {
+
+                .abc,
+                .abcd {
+                    width: 100%;
+                }
+
+
+            }
+        </style>
+    </section>
+    <section class="products">
+        <div class="cards-list container">
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images\search (1).jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">3D</h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">Bengal Tiger</h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">450 $</h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">Details</div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/main.jpg' %}');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">3D</h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">Bengal Tiger</h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">450 $</h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">Details</div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/main2.jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">3D</h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">Bengal Tiger</h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">450 $</h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">Details</div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/dragon_adult_0000_1200.jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">3D</h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    Bengal Tiger
+                                </h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    450 $
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">
+                                Details
+                            </div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/TitleNewCube.jpgD623DE28-6190-407B-BCD1-B2DCB5C92066Res300.jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">
+                                    3D
+                                </h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    Bengal Tiger
+                                </h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    450 $
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">
+                                Details
+                            </div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/_300.jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">
+                                    3D
+                                </h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    Bengal Tiger
+                                </h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    450 $
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">
+                                Details
+                            </div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/search (1).jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">
+                                    3D
+                                </h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    Bengal Tiger
+                                </h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    450 $
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">
+                                Details
+                            </div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/main.jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">
+                                    3D
+                                </h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    Bengal Tiger
+                                </h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    450 $
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">
+                                Details
+                            </div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card3 shadow"
+                 style="background-image: url('{% static 'images/main2.jpg' %} ');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">
+                                    3D
+                                </h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    Bengal Tiger
+                                </h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">
+                                    450 $
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">
+                                Details
+                            </div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-4">
+            </div>
+            <div class="col-4 flex">
+                <a class="btn text-light next w-75 "
+                   style="background-color: rgba(255, 5, 72);">
+                    Load more
+                </a>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+        <style>
+            .flex{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            /* frame */
+            .black_fillter {
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 100%;
+                height: 100%;
+            }
+
+            .frame {
+                opacity: 0%;
+                height: 100%;
+                width: 100%;
+            }
+
+            .card3:hover .frame  ,.card3:hover .black_fillter{
+                background-color: rgba(0, 0, 0, 0.15);
+                opacity: 100%;
+                transition: opacity 1s;
+
+            }
+
+            .top {
+                background-color: white;
+                height: 13%;
+                width: 100%;
+            }
+
+            .center {
+                height: 74%;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                align-items: flex-start;
+            }
+            .center button{
+                background-color: rgba(0, 0, 0, 0);
+                height: auto;
+                width: auto;
+                border: none;
+                color: rgb(255, 5, 72);
+                 font-size: 30px;
+            }
+
+            .bottom {
+                background-color: white;
+                height: 13%;
+                width: 100%;
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .card3 {
+                margin: 30px auto;
+                width: 400px;
+                height: 320px;
+
+
+                cursor: pointer;
+                transition: 0.4s;
+            }
+
+
+
+
+            @media all and (max-width: 800px) {
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+
+                .card3 {
+
+                    width:100%;
+                    height: 250px;
+                }
+
+                .card3 .card_title p {
+
+                    margin-top: -100px;
+                }
+
+            }
+
+
+            /* .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 40px;
+        background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-repeat: no-repeat;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        transition: 0.4s;
+      } */
+        </style>
+    </section>
+{% endblock %}

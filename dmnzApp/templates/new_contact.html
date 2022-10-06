@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="contact ">
+        <div class="dark pb-5 px-3">
+            <section class="heading p-4 text-center text-light">
+                <h1 class="mt-5">Get in Touch</h1>
+                <h5>We will contact after we receive your request in 24h</h5>
+            </section>
+            <section class="headbox container ">
+                <div class="headbox0 row bg-light p-4 ">
+                    <div class="col-lg-4 flex p-4 bdr-r">
+                        <img src="{% static 'images/email.png' %}" alt="msg" width="50px">
+                        <h6 class="px-2">contact@dimensions.com</h6>
+                    </div>
+                    <div class="col-lg-4 flex p-4 bdr-r">
+                        <img src="http://atlas-content-cdn.pixelsquid.com/stock-images/location-pin-web-icon-computer-zeJvZwF-600.jpg"
+                             alt="msg"
+                             width="50px">
+                        <h6 class="px-2">SB Howard St toranto</h6>
+                    </div>
+                    <div class="col-lg-4 flex p-4">
+                        <img width="50px"
+                             src="https://icon-library.com/images/android-text-message-icon/android-text-message-icon-10.jpg"
+                             alt="msg">
+                        <h6 class="px-2">+91 956525623</h6>
+                    </div>
+                </div>
+            </section>
+            <section class="forms  mt-lg-5 mt-2 PX-3">
+                <form action="" class="container pt-5 forms0">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4 flex p-3">
+                            <input type="text" class="p-3 form-control" placeholder="Name">
+                        </div>
+                        <div class="col-lg-4 flex p-3">
+                            <input type="text" class="p-3 form-control" placeholder="Email Address">
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4 flex p-3">
+                            <input type="text" class="p-3 form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="col-lg-4 flex p-3">
+                            <input type="text" class="p-3 form-control" placeholder="Your website">
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 flex p-3">
+                            <textarea name=""
+                                      id=""
+                                      cols="30"
+                                      rows="10"
+                                      placeholder="Message"
+                                      class="p-3 form-control"></textarea>
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4 upload flex flex-column p-3">
+                            <h5 style="color:rgb(255, 5, 72) ;">UPLOAD FILES</h5>
+                            <div class="drop-zone">
+                                <span class="drop-zone__prompt flex flex-column">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/1091/1091885.png"
+                                         width="100px"
+                                         alt="">
+                                    <span class="text-dark">Drag & Drop</span>
+                                    <p style="color:gray ; font-size:14px;">Your files here or browse to upload</p>
+                                </span>
+                                <input type="file" name="myFile" class="drop-zone__input">
+                            </div>
+                        </div>
+                        <div class="col-lg-4"></div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6 flex ">
+                            <input type="checkbox" style="background-color:rgb(255, 5, 72) ;" required>
+                            <p class="m-0 px-2">I Agreed to the Terms ans conditions</p>
+                        </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6 flex flex-column pb-3">
+                            <input type="submit"
+                                   class="btn text-light w-50 "
+                                   style="background-color:rgb(255, 5, 72);"
+                                   value="Submit Your Request">
+                        </div>
+                        <div class="col-lg-3"></div>
+                    </div>
+                </form>
+                <style>
+                    .forms0 {
+                        border-top: 7px solid rgb(255, 5, 72);
+                        background-color: white;
+                        border-radius: 20px;
+                    }
+
+                    .col-lg-4 input {
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid rgb(223, 223, 223);
+                        box-shadow: 0px 3px 3px rgb(255, 5, 72);
+                        border-radius: 8px;
+
+
+                    }
+
+                    textarea {
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid rgb(223, 223, 223);
+                        box-shadow: 0px 3px 3px rgb(255, 5, 72);
+                        border-radius: 20px;
+
+                    }
+
+                    /* uplod */
+                    .upload{
+                        border: 1px solid rgb(223, 223, 223);
+                        box-shadow: 0px 3px 3px rgb(255, 5, 72);
+                        border-radius: 20px;
+
+                    }
+                    .drop-zone {
+                        width: 100%;
+                       
+
+
+                        padding: 25px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        font-family: "Quicksand", sans-serif;
+                        font-weight: 500;
+                        font-size: 20px;
+                        cursor: pointer;
+                        color: #cccccc;
+                        border: 2px dashed #a0a0a0;
+                        border-radius: 10px;
+                        
+                    }
+
+                    .drop-zone--over {
+                        border-style: solid;
+                    }
+
+                    .drop-zone__input {
+                        display: none;
+                    }
+
+                    .drop-zone__thumb {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        background-color: #cccccc;
+                        background-size: cover;
+                        position: relative;
+                    }
+
+                    .drop-zone__thumb::after {
+                        content: attr(data-label);
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        padding: 5px 0;
+                        color: #ffffff;
+                        background: rgba(0, 0, 0, 0.75);
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                </style>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+                        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+                        crossorigin="anonymous"
+                        referrerpolicy="no-referrer"></script>
+                <script>
+                    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+                        const dropZoneElement = inputElement.closest(".drop-zone");
+
+                        dropZoneElement.addEventListener("click", (e) => {
+                            inputElement.click();
+                        });
+
+                        inputElement.addEventListener("change", (e) => {
+                            if (inputElement.files.length) {
+                                updateThumbnail(dropZoneElement, inputElement.files[0]);
+                            }
+                        });
+
+                        dropZoneElement.addEventListener("dragover", (e) => {
+                            e.preventDefault();
+                            dropZoneElement.classList.add("drop-zone--over");
+                        });
+
+                        ["dragleave", "dragend"].forEach((type) => {
+                            dropZoneElement.addEventListener(type, (e) => {
+                                dropZoneElement.classList.remove("drop-zone--over");
+                            });
+                        });
+
+                        dropZoneElement.addEventListener("drop", (e) => {
+                            e.preventDefault();
+
+                            if (e.dataTransfer.files.length) {
+                                inputElement.files = e.dataTransfer.files;
+                                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+                            }
+
+                            dropZoneElement.classList.remove("drop-zone--over");
+                        });
+                    });
+
+                    /**
+                     * Updates the thumbnail on a drop zone element.
+                     *
+                     * @param {HTMLElement} dropZoneElement
+                     * @param {File} file
+                     */
+                    function updateThumbnail(dropZoneElement, file) {
+                        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+                        // First time - remove the prompt
+                        if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                            dropZoneElement.querySelector(".drop-zone__prompt").remove();
+                        }
+
+                        // First time - there is no thumbnail element, so lets create it
+                        if (!thumbnailElement) {
+                            thumbnailElement = document.createElement("div");
+                            thumbnailElement.classList.add("drop-zone__thumb");
+                            dropZoneElement.appendChild(thumbnailElement);
+                        }
+
+                        thumbnailElement.dataset.label = file.name;
+
+                        // Show thumbnail for image files
+                        if (file.type.startsWith("image/")) {
+                            const reader = new FileReader();
+
+                            reader.readAsDataURL(file);
+                            reader.onload = () => {
+                                thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+                            };
+                        } else {
+                            thumbnailElement.style.backgroundImage = null;
+                        }
+                    }
+
+                </script>
+            </section>
+        </div>
+        <style>
+            .flex{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .contact {
+                background-image: url({% static 'images/3d-orange-beach-ball-ll03n6wqhcxtqla4-ll03n6wqhcxtqla4.jpg'%});
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+
+            .dark {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, .5);
+            }
+
+            .headbox0 {
+                border-radius: 25px;
+            }
+
+            .bdr-r {
+                border-right: 1px solid rgb(206, 206, 206);
+            }
+        </style>
+    </section>
+{% endblock %}

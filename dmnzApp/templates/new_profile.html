@@ -1,0 +1,570 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="banner">
+        <div class="inner">
+
+
+
+
+        </div>
+        <style>
+            .banner {
+                height: 50vh;
+                background-image: url(' {% static 'images/colorbnr.jpg'%}');
+                background-size: cover;
+                background-attachment: fixed;
+
+
+            }
+
+            .headtext {
+                font-size: 80px;
+            }
+
+            .inner {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            @media all and (max-width: 500px) {
+                .banner {
+                    height: 25vh;
+
+
+                }
+
+                .headtext {
+                    font-size: 30px;
+                }
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </section>
+    <section class="profile container">
+        <div class="profile0 row bg-light shadow ">
+            <div class="col-lg-3  d-flex flex-column align-items-center pt-3 boxl">
+                <img src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/12/06/bbff530cddcb7ed1b79ecee931f9f854/artboard-2-copy-6.jpg"
+                    alt="" class="shadow img-fluid">
+                <h4 class="m-0 p-2">Jessica Pearson</h4>
+                <p style="color: gray;" class="m-0 p-0">(10 Feedback)</p>
+                <p style="color: gray;" class="m-0 p-0">Member since March 26,20</p>
+            </div>
+            <div class="col-lg-5 py-4">
+                <h1 class="px-2">Making it all make sense</h1>
+                <div class="row pt-3">
+                    <div class="col-4 flex grybdr">
+                        <p style="color: gray;" class="m-0 p-0">$ 650.00 / hr</p>
+                    </div>
+                    <div class="col-4 flex grybdr">
+                        <img src="https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg" width="20px" alt="">
+                        <p style="color: gray;" class="m-0 px-2"> India</p>
+                    </div>
+                    <div class="col-4 flex ">
+                        <i class="fa-solid fa-heart" style="color: rgb(255, 5, 72);"></i>
+                        <p style="color: gray;" class="m-0 px-2">Save</p>
+
+                    </div>
+                </div>
+                <p style="color: gray; text-align: justify;" class="m-0 p-2 py-4">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Praesentium dicta, minus quod, quas sunt corrupti voluptas nesciunt consequatur
+                    cumque reprehenderit deserunt maxime facere? Perferendis debitis praesentium exercitationem nihil
+                    autem eligendi.</p>
+                <p style="color: gray; text-align: justify;" class="m-0 px-2 ">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Praesentium dicta, minus quod, quas sunt corrupti voluptas nesciunt consequatur
+                    cumque reprehenderit deserunt maxime facere? Perferendis debitis praesentium exercitationem nihil
+                    autem eligendi.</p>
+
+                <div class="rdmr px-4"> <button class="bg-light px-3">Read more</button></div>
+
+            </div>
+            <div class="col-lg-4 bdrlft ">
+                <div class="row">
+                    <div class="col-6 flex flex-column p-4">
+                        <h3 class="red">15</h3>
+                        <p>Ongoing projects</p>
+
+                    </div>
+                    <div class="col-6 flex flex-column p-4 dark">
+                        <h3 class="red">10</h3>
+                        <p>Completed projects</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 flex flex-column p-4 dark">
+                        <h3 class="red">1</h3>
+                        <p>Cancelled projects</p>
+
+                    </div>
+                    <div class="col-6 flex flex-column p-4 ">
+                        <h3 class="red">8</h3>
+                        <p>Ongoing Services</p>
+                    </div>
+                </div>
+
+                <div class="row bdrbtm">
+                    <div class="col-6 flex flex-column p-4">
+                        <h3 class="red">15</h3>
+                        <p>Cancelled Services</p>
+
+                    </div>
+                    <div class="col-6 flex flex-column p-4 dark">
+                        <h3 class="red">5</h3>
+                        <p>Completed projects</p>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h5>$ 25000.00</h5>
+                    <h6>Total Earnings</h6>
+
+                </div>
+
+                <div class="flex p-4">
+                    <a href=" " class="text-light redbg btn w-50 py-2"> Send Offer</a>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <style>
+            .profile0 {
+                margin-top: -200px;
+                border: 1px solid rgb(188, 188, 188);
+                border-radius: 10px;
+
+            }.profile0 .boxl img {
+                width: 300px;
+            }
+
+            .grybdr {
+                border-right: 1px solid rgb(200, 200, 200);
+            }
+
+            .rdmr {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+            }
+
+            .rdmr button {
+                border: 1px solid rgba(0, 0, 0, 0);
+
+                color: rgb(255, 5, 72);
+
+            }
+
+            .rdmr button:hover {
+                border: 1px solid rgb(255, 5, 72);
+                color: rgb(255, 5, 72);
+
+            }
+
+            .red {
+                color: rgb(255, 5, 72);
+
+            }
+
+            .redbg {
+                background-color: rgb(255, 5, 72);
+            }
+
+            .dark {
+                background-color: rgb(202, 218, 232);
+            }
+
+            .bdrlft {
+                border-left: 1px solid rgb(200, 200, 200);
+            }
+
+            .bdrbtm {
+                border-bottom: 1px solid rgb(200, 200, 200);
+            }
+
+            @media only screen and (max-width:990px) {
+
+                .profile0 {
+                    margin-top: auto;
+                }
+
+                .profile0 .boxl img {
+                    margin-top: -120px;
+                    border-radius: 200px;
+                    width: 200px;
+                }
+
+
+            }
+        </style>
+
+    </section>
+
+    <section class="services container bg-lights p-3">
+        <h3 class="px-4">Services</h3>
+
+        <div class="cards-list container">
+
+            <div class="card1 shadow-lg bg-light" data-aos="fade-up" data-aos-delay="50">
+                <div class="card border-0 " style="height: 100%; width:100%;">
+                    <img src="https://www.howtogeek.com/wp-content/uploads/2021/06/xps-13-laptop.jpg?width=720&height=450&fit=crop&trim=2,2,2,2&fit=crop"
+                        class="card-img-top" alt="...">
+                    <div class="card-body d-flex container row">
+                        <div class="col-lg-3 ">
+                            <img src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/12/06/bbff530cddcb7ed1b79ecee931f9f854/artboard-2-copy-6.jpg"
+                                alt="" width="70px" style="border-radius:70px ;">
+                        </div>
+                        <div class="col-lg-8 col-10">
+                            <b class="red">Jessica Pearson</b>
+                            <p class="m-0 p-0">I will be your ios developer and update old apps</p>
+                            <p style="color: gray;" class="m-0 py-2">Starting from : <span class="red"> $520.00</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2 ">
+                            <i class="fa-solid fa-heart" style="color: rgb(255, 5, 72); font-size: 25px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card1 shadow-lg bg-light" data-aos="fade-up" data-aos-delay="50">
+                <div class="card border-0 " style="height: 100%; width:100%;">
+                    <img src="https://wallpaperaccess.com/full/1393206.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex container row">
+                        <div class="col-lg-3 ">
+                            <img src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/12/06/bbff530cddcb7ed1b79ecee931f9f854/artboard-2-copy-6.jpg"
+                                alt="" width="50px" style="border-radius:50px ;">
+                        </div>
+                        <div class="col-lg-8 col-10">
+                            <b class="red">Jessica Pearson</b>
+                            <p class="m-0 p-0">I will be your ios developer and update old apps</p>
+                            <p style="color: gray;" class="m-0 py-2">Starting from : <span class="red"> $520.00</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2 ">
+                            <i class="fa-solid fa-heart" style="color: rgb(255, 5, 72); font-size: 25px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card1 shadow-lg bg-light" data-aos="fade-up" data-aos-delay="50">
+                <div class="card border-0 " style="height: 100%; width:100%;">
+                    <img src="https://www.wallsauce.com/uploads/wallsauce-com/images/thumbs/872/af859632adcb5729974c2ea88e49fda8535c1ea9_800__R_N_90.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body d-flex container row">
+                        <div class="col-lg-3">
+                            <img src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/12/06/bbff530cddcb7ed1b79ecee931f9f854/artboard-2-copy-6.jpg"
+                                alt="" width="50px" style="border-radius:50px ;">
+                        </div>
+                        <div class="col-lg-8 col-10">
+                            <b class="red">Jessica Pearson</b>
+                            <p class="m-0 p-0">I will be your ios developer and update old apps</p>
+                            <p style="color: gray;" class="m-0 py-2">Starting from : <span class="red"> $520.00</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2 ">
+                            <i class="fa-solid fa-heart" style="color: rgb(255, 5, 72); font-size: 25px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <style>
+            .card1 {
+                background-color: rgba(0, 0, 0, 3);
+                margin: 10px auto;
+                width: 400px;
+                min-height: 350px;
+
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                cursor: pointer;
+                transition: 0.4s;
+            }
+
+            .star {
+                color: rgb(228, 228, 228);
+                text-shadow: 1px 1px 1px black;
+            }
+
+            .checked {
+                color: rgb(255, 5, 72);
+            }
+
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .card .card-img-top {
+                height: 70%;
+            }
+
+            @media all and (max-width: 500px) {
+
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </section>
+
+
+
+    <section class="skills_awards container p-0">
+        <div class="skills_awards0 row container-fluid m-0 ">
+            <div class="col-lg-7 py-4 m-0 ">
+                <h3 class="m-0 p-0">My Skills</h3>
+
+
+                <div class="progres pt-3 flex flex-column">
+                    <div class="row w-100 m-0 p-0 container-fluid">
+                        <div class="col-5 px-2 m-0 " style="color: rgb(172, 172, 172);">
+                            PHP
+
+                        </div>
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 m-0 p-0 d-flex justify-content-end px-2" style="color: rgb(172, 172, 172);">
+                            90%
+                        </div>
+                    </div>
+
+                    <div class="flex w-100 p-0 m-0 container-fluid">
+                        <progress id="file" value="90" max="100" class="m-0 "></progress>
+                    </div>
+
+                </div>
+
+                <div class="progres pt-3 flex flex-column">
+                    <div class="row w-100 m-0 p-0 container-fluid">
+                        <div class="col-5 px-2 m-0 " style="color: rgb(172, 172, 172);">
+                            PHP
+
+                        </div>
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 m-0 p-0 d-flex justify-content-end px-2" style="color: rgb(172, 172, 172);">
+                            35%
+                        </div>
+                    </div>
+
+                    <div class="flex w-100 p-0 m-0 container-fluid">
+                        <progress id="file" value="35" max="100" class="m-0 "></progress>
+                    </div>
+
+                </div>
+
+                <div class="progres pt-3 flex flex-column">
+                    <div class="row w-100 m-0 p-0 container-fluid">
+                        <div class="col-5 px-2 m-0 " style="color: rgb(172, 172, 172);">
+                            PHP
+
+                        </div>
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 m-0 p-0 d-flex justify-content-end px-2" style="color: rgb(172, 172, 172);">
+                            50%
+                        </div>
+                    </div>
+
+                    <div class="flex w-100 p-0 m-0 container-fluid">
+                        <progress id="file" value="50" max="100" class="m-0 "></progress>
+                    </div>
+
+                </div>
+
+                <div class="progres pt-3 flex flex-column">
+                    <div class="row w-100 m-0 p-0 container-fluid">
+                        <div class="col-5 px-2 m-0 " style="color: rgb(172, 172, 172);">
+                            PHP
+
+                        </div>
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 m-0 p-0 d-flex justify-content-end px-2" style="color: rgb(172, 172, 172);">
+                            30%
+                        </div>
+                    </div>
+
+                    <div class="flex w-100 p-0 m-0 container-fluid">
+                        <progress id="file" value="30" max="100" class="m-0 "></progress>
+                    </div>
+
+                </div>
+
+                <div class="progres pt-3 flex flex-column">
+                    <div class="row w-100 m-0 p-0 container-fluid">
+                        <div class="col-5 px-2 m-0 " style="color: rgb(172, 172, 172);">
+                            PHP
+
+                        </div>
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 m-0 p-0 d-flex justify-content-end px-2" style="color: rgb(172, 172, 172);">
+                            80%
+                        </div>
+                    </div>
+
+                    <div class="flex w-100 p-0 m-0 container-fluid">
+                        <progress id="file" value="80" max="100" class="m-0 "></progress>
+                    </div>
+
+                </div>
+
+
+                <div class="progres pt-3 flex flex-column">
+                    <div class="row w-100 m-0 p-0 container-fluid">
+                        <div class="col-5 px-2 m-0 " style="color: rgb(172, 172, 172);">
+                            PHP
+
+                        </div>
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 m-0 p-0 d-flex justify-content-end px-2" style="color: rgb(172, 172, 172);">
+                            90%
+                        </div>
+                    </div>
+
+                    <div class="flex w-100 p-0 m-0 container-fluid">
+                        <progress id="file" value="90" max="100" class="m-0 "></progress>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 py-4 m-0 ">
+                <h3 class="px-4">
+                    Awards & Certifications
+                </h3>
+                <div class="row container-fluid pt-3">
+                    <div class="col-2 flex flex-column ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Rose-pink.jpg" alt="" width="50px"
+                            height="50px">
+                    </div>
+
+                    <div class="col-10 d-flex flex-column justify-content-center align-items-start">
+                        <h6 class="p-0 m-0">Best Logo Design winner</h6>
+                        <p style="color: rgb(185, 185, 185);" class="p-0 m-0">August 21,2018</p>
+                    </div>
+                </div>
+
+                <div class="row container-fluid pt-3">
+                    <div class="col-2 flex flex-column ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Rose-pink.jpg" alt="" width="50px"
+                            height="50px">
+                    </div>
+
+                    <div class="col-10 d-flex flex-column justify-content-center align-items-start">
+                        <h6 class="p-0 m-0">Best Logo Design winner</h6>
+                        <p style="color: rgb(185, 185, 185);" class="p-0 m-0">August 21,2018</p>
+                    </div>
+                </div>
+
+                <div class="row container-fluid pt-3">
+                    <div class="col-2 flex flex-column ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Rose-pink.jpg" alt="" width="50px"
+                            height="50px">
+                    </div>
+
+                    <div class="col-10 d-flex flex-column justify-content-center align-items-start">
+                        <h6 class="p-0 m-0">Best Logo Design winner</h6>
+                        <p style="color: rgb(185, 185, 185);" class="p-0 m-0">August 21,2018</p>
+                    </div>
+                </div>
+
+                <div class="row container-fluid pt-3">
+                    <div class="col-2 flex flex-column ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Rose-pink.jpg" alt="" width="50px"
+                            height="50px">
+                    </div>
+
+                    <div class="col-10 d-flex flex-column justify-content-center align-items-start">
+                        <h6 class="p-0 m-0">Best Logo Design winner</h6>
+                        <p style="color: rgb(185, 185, 185);" class="p-0 m-0">August 21,2018</p>
+                    </div>
+                </div>
+
+                <div class="row container-fluid pt-3">
+                    <div class="col-2 flex flex-column ">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Rose-pink.jpg" alt="" width="50px"
+                            height="50px">
+                    </div>
+
+                    <div class="col-10 d-flex flex-column justify-content-center align-items-start">
+                        <h6 class="p-0 m-0">Best Logo Design winner</h6>
+                        <p style="color: rgb(185, 185, 185);" class="p-0 m-0">August 21,2018</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <style>
+            progress {
+                border-radius: 22px;
+                width: 100%;
+                height: 15px;
+                margin-left: -11.5%;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.365);
+            }
+
+            progress::-webkit-progress-bar {
+                background-color: rgb(228, 228, 228);
+                border-radius: 22px;
+            }
+
+            progress::-webkit-progress-value {
+                background-color: rgb(255, 5, 72);
+                border-radius: 22px;
+
+            }
+
+            progress::-moz-progress-bar {
+                /* style rules */
+            }
+        </style>
+    </section>
+
+    {% endblock %}

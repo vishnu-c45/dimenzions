@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/requestnew.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+/* html {
+  margin:0;
+  padding:0;
+  font-family: 'Josefin Sans', sans-serif; 
+  background: linear-gradient(#141e30, #243b55) no-repeat;
+  height: auto;
+  width: 100%;
+} */
+
+body{
+	background:rgb(21, 32, 51);
+	font-family: sans-serif;
+	width:100%;
+	color: #03e9f4;
+}
+  </style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<script type="text/javascript">
+      
+    
+	// Find all inputs on the DOM which are bound to a datalist via their list attribute.
+  var inputs = document.querySelectorAll('input[list]');
+  for (var i = 0; i < inputs.length; i++) {
+  // When the value of the input changes...
+  inputs[i].addEventListener('change', function() {
+  var optionFound = false,
+  datalist = this.list;
+  // Determine whether an option exists with the current value of the input.
+  for (var j = 0; j < datalist.options.length; j++) {
+  if (this.value == datalist.options[j].value) {
+  optionFound = true;
+  break;
+  }
+  }
+  // use the setCustomValidity function of the Validation API
+  // to provide an user feedback if the value does not exist in the datalist
+  if (optionFound) {
+  this.setCustomValidity('');
+  } else {
+  this.setCustomValidity('Please select a valid value.');
+  }
+  });
+  }
+	  
+	  </script>
+<div class="container" style="padding-top:13vh;padding-bottom:20px;">
+	<div class="row">
+
+
+			<div class="col-sm-6" style="background: rgba(0,0,0,.5);color:white;height:100%;">
+				<br><br><h2 style="color:white;font-family: 'Anton', sans-serif;font-size:48px;">Leave us your email and get a  3-D Dimensional object</h2>
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			
+		    	<center><footer style="font-size:24px;">follow us & we'll follow you</footer></center>
+				<br>
+			
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				
+				
+		
+			
+		
+		</div>
+		<div class="col-sm-6"  style=" background: rgba(0,0,0,.5);height:100%;padding-bottom:2px;height:100%;">
+			<h2>Request</h2>
+			<form method="POST" action="{%  url 'savereq' %}" enctype="multipart/form-data">
+			  {% csrf_token %}
+			  <div class="user-box">
+				<input  style="background:transparent;" name='name' type="text"  required="" autocomplete="off">
+				<label>Name</label>
+			  </div>
+			  <div class="user-box">
+				<input style="background:transparent;" name='number' type="text"  required=""  autocomplete="off">
+				<label>Mobile</label>
+			  </div>
+			  <div class="user-box">
+				  <input style="background:transparent;" name='email' type="email"  required="" autocomplete="off" >
+				  <label>Email</label>
+				</div>
+				<div class="user-box">
+				  <input style="background:transparent;" name="about" type="text"  required=""   autocomplete="off">
+				  
+				  <label>Tell Us About</label>
+				</div>
+				<div class="user-box">
+				  <input name='image' type="file" >
+				  
+				  <label>Image</label>
+				</div>
+		  
+			<center> <a href="#" style="padding-bottom:10px;">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<input onMouseOver="this.style.color='white'" onMouseOut="this.style.color='#03e9f4'" style="background:transparent;border:none;font-size:22px;font-family:san-serif;color: #03e9f4; text-transform: uppercase;" type="submit">
+			  </a></center> 
+			</form>
+
+			</div>
+			
+	
+</div>
+</div>
+
+</body>
+<script>
+$(document).on('submit', 'form', function () {
+    var empty = $(this).find('input[type=text]').filter(function() {
+        return $.trim(this.value) === "";
+    });
+    if(empty.length) {
+        alert('Please fill in all the fields');
+        return false;
+    }
+});
+
+</script>
+<script>
+function required()
+{
+var empt = document.forms["form1"]["text1"].value;
+if (empt == "")
+{
+alert("Please input a Value");
+return false;
+}
+else 
+{
+alert('Code has accepted : you can try another');
+return true; 
+}
+}
+	</script>
+
+<!-- <script>
+
+
+function validatePhoneNumber(input_str) {
+  var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
+  return re.test(input_str);
+}
+function validateForm(event) {
+  var phone = document.getElementById('phone').value;
+  if (!validatePhoneNumber(phone)) {
+	
+alert('Enter the correct Phone number')
+document.getElementById('phone_error').classList.remove('hidden');
+  } else {
+
+document.getElementById('phone_error').classList.add('hidden');
+    alert("validation success")
+  }
+  event.preventDefault();
+}
+
+document.getElementById('myform').addEventListener('submit', validateForm);
+	</script> -->
+
+</html>
+

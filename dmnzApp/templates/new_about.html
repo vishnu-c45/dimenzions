@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <section class="banner">
+        <div class="inner">
+            <b>
+                <h1 class="text-light headtext text-center px-5 px-lg-0">
+                ABOUT</span>
+            </h1>
+        </b>
+        <b>
+            <h1 style="color: rgb(255, 5, 72);" class="headtext"></h1>
+        </b>
+    </div>
+    <style>
+            .banner {
+                height: 50vh;
+                background-image: url('{% static 'images/assn.png' %}');
+                background-size: cover;
+
+                background-attachment: fixed;
+
+
+            }
+
+            .headtext {
+                font-size: 50px;
+                font-weight: 600;
+            }
+
+            .inner {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            @media only screen and (max-width:800px) {
+
+                .headtext {
+                    font-size: 30px;
+                    font-weight: 600;
+                }
+
+                .banner {
+                    height: 30vh;
+
+
+
+                }
+            }
+    </style>
+</section>
+<!-- content goes here -->
+<section class="container p-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3 class="bld pb-3">
+                Released <span class="red bld py-4">3D Models</span>
+            </h3>
+            <p style="text-align: justify;" class="pe-lg-4">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium iure eum eveniet quasi unde dolor veniam, veritatis facere, corrupti a velit repellat, perferendis molestias beatae explicabo officia eos quis natus.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem rerum doloremque beatae necessitatibus. Numquam accusamus, nihil qui ullam odit quibusdam, temporibus eaque aliquam expedita ab atque, odio voluptas placeat saepe.
+                <br>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste magni nobis ducimus. Doloremque, velit voluptatum. Magni soluta voluptatibus, atque doloremque sequi distinctio reiciendis ipsa quia architecto ratione cumque dignissimos aut?
+            </p>
+            <a href="{% url 'registration'%}" class="btn btn-danger">Join Now</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid"
+                 src="{% static 'images/inner_about_img01 1.png' %}"
+                 alt="">
+            <img class="imagedown img-fluid"
+                 src="{% static 'images/inner_about_img02 1.png' %}"
+                 alt="">
+        </div>
+    </div>
+</section>
+<style>
+        .imagedown{
+            margin-top: -200px;
+            margin-left: -40px;
+
+        }
+        .red{
+        color: rgb(255, 5, 72);
+        }
+        .bld{
+            font-weight: 700;
+        }
+        @media only screen and (max-width:800px) {
+            .imagedown{
+            margin-top: auto;
+            margin-left: auto;
+
+        }
+        }
+</style>
+<section class="container p-5">
+    <h3 class="bld text-center mb-4">
+        OUR <span class="red bld ">TEAM <span class="red bld">MEMBERS</span>
+    </h3>
+    <div class="row container text-center">
+        <div class="col-lg-3">
+            <div class="redbgl">
+                <img src="{% static 'images/team-member-1 2.png' %}" alt="">
+            </div>
+            <h6 class="bld mt2">JAMES WISEMAN</h6>
+            <p class="gry">Web Developer</p>
+        </div>
+        <div class="col-lg-3">
+            <div class="redbgl">
+                <img src="{% static 'images/team-member-3 1.png' %}" alt="">
+            </div>
+            <h6 class="bld mt-2">JAMES WISEMAN</h6>
+            <p class="gry">Web Developer</p>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="redbgl">
+                <img src="{% static 'images/team-member-4 1.png' %}" alt="">
+            </div>
+            <h6 class="bld mt-2">JAMES WISEMAN</h6>
+            <p class="gry">Web Developer</p>
+        </div>
+        <div class="col-lg-3 ">
+            <div class="redbgl">
+                <div> <img src="{% static 'images/team-member-1 2.png' %}" alt=""></div>
+            </div>
+            <h6 class="bld mt-2">JAMES WISEMAN</h6>
+            <p class="gry">Web Developer</p>
+        </div>
+    </div>
+    <style>
+            .gry{
+                color: rgb(191, 191, 191);
+            }
+            .redbgl:hover{
+                background-color: red;
+            }
+            
+    </style>
+</section>
+<section class="soon">
+    <div class="left4">
+        <div style="background-color: rgba(0,0,0,.5);
+                    height: 100%;
+                    width: 100%;"
+             class="flexy">
+            <h2 class="text-light" style="font-weight: 600;">
+                COMING SOON !
+            </h2>
+        </div>
+    </div>
+    <div class="right4 p-4">
+        <H4 class="text-light" style="font-weight: 600;">
+            SIGNUP FOR NEWSLETTER
+        </H4>
+        <form class="d-flex mt-3">
+            <input class="px-3 me-0 rounded-0 border-0 search"
+                   type="search"
+                   placeholder="Search"
+                   aria-label="Search">
+            <button class=" p-2 rocket"
+                    style="background-color: white;
+                           border: 0;"
+                    type="submit">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+    <style>
+        .soon {
+            display: flex;
+        }
+
+        .rocket {
+            color: rgb(255, 5, 72);
+
+        }
+
+        .search {
+            width: 450px;
+        }
+
+        .soon {
+            height: 30vh;
+        }
+
+        .left4 {
+            background-image: url('{%static 'images/soon2.png' %}');
+            background-size: 100% 100%;
+            
+            background-repeat: no-repeat;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right4 {
+            background-color: rgb(255, 5, 72);
+            background-image: url('{%static 'images/triangle.png' %}');
+            background-size: cover;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+        .flexy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        @media all and (max-width: 800px) {
+            .right4 {
+                width: 100%;
+            }
+
+            .left4 {
+                width: 100%;
+                height: 200px;
+                background-size: cover;
+            }
+
+            .search {
+                width: auto;
+            }
+
+            .soon {
+                height: auto;
+            }
+
+            .soon {
+                display: block;
+            }
+            
+        }
+    </style>
+</section>
+<!-- content ends here -->
+{% endblock %}
