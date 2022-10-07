@@ -21,6 +21,10 @@ class Admin_register(models.Model):
 class categories(models.Model):
     
     category_name = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.category_name
+
 
 class Product(models.Model):
     category = models.ForeignKey(categories, on_delete=models.CASCADE, null=True,default='')
@@ -57,7 +61,7 @@ class Register_freelance(models.Model):
     college=models.CharField(max_length=255,default='')
     special=models.CharField(max_length=255,default='')
     education=models.CharField(max_length=255,default='')
-    #expireince
+    #skills
     proffecional_title=models.CharField(max_length=255,default='')
     service=models.CharField(max_length=255,default='')
     skills=models.CharField(max_length=255,default='')

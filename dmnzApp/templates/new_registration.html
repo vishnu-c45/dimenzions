@@ -8,7 +8,7 @@
     <div class=" py-0 m-0 flex " style="background-image: url('{% static 'images/Wallpaper-3D 1.png'%}');
     background-size: 100% 100%;
     background-attachment: fixed;">
-        <form class="formm p-0 m-0" action="" method="post">
+        <form class="formm p-0 m-0" action="{% url 'freereg' %}" method="post" enctype="multipart/form-data">
              {% csrf_token %}
             <div class=" page1 row p-lg-5" id="page1">
                 <div class="col-lg-4  p-0 status">
@@ -399,9 +399,9 @@
                                 <select class="form-select" name="title" id="floatingSelectGrid"
                                     aria-label="Floating label select example">
                                     <option selected disabled></option>
-                                    <option value="Web_Developer">web Development</option>
-                                    <option value="Software_Developer">software Development</option>
-                                    <option value="Data_Analyst">Data analyst</option>
+                                    <option value="Web Developer">web Development</option>
+                                    <option value="Software Developer">software Development</option>
+                                    <option value="Data Analyst">Data analyst</option>
                                 </select>
                                 <label for="floatingSelectGrid">Select Your Title</label>
                             </div>
@@ -585,8 +585,8 @@
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-floating">
                                 <select class="form-select" id="floatingSelectGrid"
-                                    aria-label="Floating label select example"name="time">
-                                    <option selected disabled></option>
+                                    aria-label="Floating label select example" name="time">
+                                    <!-- <option selected disabled></option> -->
                                     <option value="1000">full day</option>
                                     <option value="600">half day</option>
                                     <option value="1800">two days</option>
@@ -599,25 +599,17 @@
                     <div class="row ">
                         <div class="col-sm-6 col-md-6 col-lg-6 sec-row">
                             <div class="form-floating">
-                                <select class="form-select" id="floatingSelectGrid"
+                                <input type='date' class="form-select" name="start_date" id="floatingSelectGrid"
                                     aria-label="Floating label select example">
-                                    <option selected disabled></option>
-                                    <option value="1">20</option>
-                                    <option value="2">20</option>
-                                    <option value="3">20</option>
-                                </select>
+                                   
                                 <label for="floatingSelectGrid">Start Date</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-floating">
-                                <select class="form-select" id="floatingSelectGrid"
+                                <input type="date" class="form-select" name="end_date" id="floatingSelectGrid"
                                     aria-label="Floating label select example">
-                                    <option selected disabled></option>
-                                    <option value="1">20</option>
-                                    <option value="2">20</option>
-                                    <option value="3">20</option>
-                                </select>
+                                   
                                 <label for="floatingSelectGrid">End Date</label>
                             </div>
                         </div>
@@ -794,7 +786,7 @@
                     <div class="row ">
                         <div class="col-sm-12 col-md-12 col-lg-12 sec-row">
                             <div class="form-floating">
-                                <input type="file" class="form-control" id="floatingInput" placeholder=""
+                                <input type="file" name="files" class="form-control" id="floatingInput" placeholder="file"
                                     style="height:70px;" name="workimg">
                                 <label for="floatingPassword"></label>
                             </div>
@@ -935,17 +927,16 @@
 
 
                     <div class="row ">
-                        <div class="col-sm-3 col-md-3 col-lg-3 f-row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 f-row">
                             <div class="">
-                                <img src="img/images (5) 2.png" alt="abc" class="rounded-circle" alt="" height="150px" width="150px">
+                                <img src="img/images(5)2.png" alt="abc" class="rounded-circle" alt="" height="150px" width="150px">
                             </div>
                         </div>
-                        <div class="col-sm-9 col-md-9 col-lg-9 mt-4">
+                        <div class="col-sm-9 col-md-9 col-lg-6 mt-4">
                             <div class="">
                                 <h5>Add Profile Photo</h5>
-                                <p class="pro-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                                    reiciendis debitis ex laudantium sequi deserunt! Aliquam quaerat voluptatum pariatur
-                                    esse! Nam non ratione corrupti ad? Unde magni aliquid reprehenderit dolores.</p>
+                                <input type="file" class="form-control " name="profilepic" id="floatingInput" placeholder="">
+                                
                             </div>
                         </div>
                     </div>
@@ -976,8 +967,7 @@
                         <div class="col-sm-6 col-md-6 col-lg-6 f-row">
                             <div class="form-floating">
                                 <select class="form-select" id="floatingSelectGrid"
-                                    aria-label="Floating label select example" name="c
-                                    ountry">
+                                    aria-label="Floating label select example" name="country">
                                     <option selected disabled></option>
                                     <option value="1">india</option>
                                     <option value="2">uk</option>

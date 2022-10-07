@@ -13,7 +13,7 @@ urlpatterns = [
     re_path(r'^contact$', views.contact, name='contact'),
     re_path(r'^model$', views.model, name='model'),
     re_path(r'^product$', views.product, name='product'),
-    re_path(r'^profile$', views.profile, name='profile'),
+    path('profile/<int:pk>',views.profile, name='profile'),
     re_path(r'^registration$', views.registration, name='registration'),
     re_path(r'^freelancer$', views.freelancer, name='freelancer'),
     # re_path(r'^login/$', views.login, name="login"),
@@ -92,5 +92,9 @@ urlpatterns = [
     path('deletereq/<int:reg_id>',views.deletereq,name='deletereq'),
     
     # re_path(r'requestnew',views.requestnew,name='requestnew'),
+    #...........category..................filter...........
+    path('three',views.three,name='three'),
     
+    path('fbx',views.fbx,name='fbx'),
+    path('obj',views.obj,name='obj'),
 ]

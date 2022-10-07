@@ -50,49 +50,41 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <label class="form-check-label" for="inlineRadio1">Model Format</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <div class="col-md-4">
-                                    <input class="form-check-input" type="radio" name="format" id="" value="option2" required/>
-                                </div>
-                                <label class="form-check-label" for="inlineRadio2">.fbx</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <div class="col-md-4">
-                                    <input class="form-check-input" type="radio" name="format" id="" value="option3" required/>
-                                </div>
-                                <label class="form-check-label" for="inlineRadio3">.obj</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <div class="col-md-4">
-                                    <input class="form-check-input" type="radio" name="format" id="" value="option3" required/>
-                                </div>
-                                <label class="form-check-label" for="inlineRadio3">.3dx</label>
-                            </div>
-                        </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label class="form-check-label" for="inlineRadio2">Model format</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control w-100" id="inlineRadio2" aria-label="Default select example"
+                                                name="format" required>
+                                                <option value="">
+                                                    --select--
+                                                </option>
+                                                <option value=".fbx">fbx</option>
+                                                <option value=".obj">obj</option>
+                                                <option value=".3dx">3dx</option>
+            
+                                            </select>
+                                        </div>
+                                    </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <label class="form-check-label" for="inlineRadio1">Model Type</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <div class="col-md-3">
-                                    <input class="form-check-input" type="radio" name="modeltype" id=""
-                                        value="option2" onclick="myFunction()" required/>
-                                </div>
-                                <label class="form-check-label" for="inlineRadio2" >Free</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <div class="col-sm-3">
-                                    <input class="form-check-input" type="radio" name="modeltype" id=""
-                                        value="option3" required/>
-                                </div>
-                                <label class="form-check-label" for="inlineRadio3">Paid</label>
-                            </div>
-                        </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label class="form-check-label" for="inlineRadio2">Model Type</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control w-100" id="inlineRadio2" aria-label="Default select example"
+                                                name="modeltype" required>
+                                                <option value="">
+                                                    --select--
+                                                </option>
+                                                <option value="Free">Free</option>
+                                                <option value="Paid">Paid</option>
+                                                
+            
+                                            </select>
+                                        </div>
+                                    </div>
 
                         <!-- <div class="form-group row">
                             <div class="col-sm-3">
@@ -118,13 +110,13 @@
                                         --select--
                                     </option>
                                     {% for i in var %}
-                                    <option value="{{i.cat_id}}">{{i.category_name}}</option>
+                                    <option value="{{i.id}}">{{i.category_name}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {% comment %} <div class="form-group row">
                             <div class="col-sm-3">
                                 <label class="form-check-label" for="inlineRadio2">Sub Category</label>
                             </div>
@@ -139,16 +131,16 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
 
 
-                        <div class="form-group row">
+                        {% comment %} <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Upload .fbx
                                 model</label>
                             <div class="col-sm-6">
                                 <input type="file" name="fbx" required/>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
 
                         <div class="form-group row">
                             <div class="col-sm-3"></div>

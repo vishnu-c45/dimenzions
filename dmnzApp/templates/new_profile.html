@@ -49,19 +49,22 @@
                 align-items: center;
                 justify-content: center;
             }
+            img{
+                max-height: 300px;
+            }
         </style>
     </section>
     <section class="profile container">
         <div class="profile0 row bg-light shadow ">
             <div class="col-lg-3  d-flex flex-column align-items-center pt-3 boxl">
-                <img src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/12/06/bbff530cddcb7ed1b79ecee931f9f854/artboard-2-copy-6.jpg"
+                <img src="{{p.profile_pic.url}}"
                     alt="" class="shadow img-fluid">
-                <h4 class="m-0 p-2">Jessica Pearson</h4>
+                <h4 class="m-0 p-2">{{p.full_name}}</h4>
                 <p style="color: gray;" class="m-0 p-0">(10 Feedback)</p>
                 <p style="color: gray;" class="m-0 p-0">Member since March 26,20</p>
             </div>
             <div class="col-lg-5 py-4">
-                <h1 class="px-2">Making it all make sense</h1>
+                <h1 class="px-2">{{p.service}}</h1>
                 <div class="row pt-3">
                     <div class="col-4 flex grybdr">
                         <p style="color: gray;" class="m-0 p-0">$ 650.00 / hr</p>
@@ -76,14 +79,11 @@
 
                     </div>
                 </div>
-                <p style="color: gray; text-align: justify;" class="m-0 p-2 py-4">Lorem ipsum dolor sit amet consectetur
+                <p style="color: gray; text-align: justify;" class="m-0 p-2 py-4">{{p.over_view}}</p>
+                {% comment %} <p style="color: gray; text-align: justify;" class="m-0 px-2 ">Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Praesentium dicta, minus quod, quas sunt corrupti voluptas nesciunt consequatur
                     cumque reprehenderit deserunt maxime facere? Perferendis debitis praesentium exercitationem nihil
-                    autem eligendi.</p>
-                <p style="color: gray; text-align: justify;" class="m-0 px-2 ">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Praesentium dicta, minus quod, quas sunt corrupti voluptas nesciunt consequatur
-                    cumque reprehenderit deserunt maxime facere? Perferendis debitis praesentium exercitationem nihil
-                    autem eligendi.</p>
+                    autem eligendi.</p> {% endcomment %}
 
                 <div class="rdmr px-4"> <button class="bg-light px-3">Read more</button></div>
 

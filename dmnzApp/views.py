@@ -27,16 +27,36 @@ def contact(request):
     return render(request, 'new_contact.html')
 
 def model(request):
-    return render(request, 'new_models.html')
+    all=Product.objects.all()
+    three=Product.objects.filter(format='.3dx')
+    return render(request, 'new_models.html',{'all':all,'three':three})
+
+#.................category...3dx...................
+def three(request):
+    three=Product.objects.filter(format='.3dx')
+    return render(request, 'cat_three_models.html',{'three':three})
+
+#.................fbx..........................
+def fbx(request):
+    fbx=Product.objects.filter(format='.fbx')
+    return render(request, 'cat_three_models.html',{'three':fbx})
+
+#....................obj......................
+def obj(request):
+    obj=Product.objects.filter(format='.obj')
+    return render(request, 'cat_obj_models.html',{'three':obj})
+
 
 def product(request):
     return render(request, 'new_product.html')
 
-def profile(request):
-    return render(request, 'new_profile.html')
+def profile(request,pk):
+    person=Register_freelance.objects.get(id=pk)
+    return render(request, 'new_profile.html',{'p':person})
 
 def freelancer(request):
-    return render(request, 'new_freelancer.html')
+    person=Register_freelance.objects.all()
+    return render(request, 'new_freelancer.html',{'person':person})
 
 def admin_log(request):
     return render(request, 'admin_log.html')
@@ -56,8 +76,50 @@ def freereg(request):
         skill=request.POST['skill']
         overview=request.POST['overview']
         #expireince
+        company=request.POST['compny']
+        position=request.POST['postn']
+        rate=request.POST['time']
+        start_date=request.POST['start_date']
+        end_date=request.POST['end_date']
+        #protfolio
+        project=request.POST['project']
+        address=request.POST['url']
+        Position2=request.POST['Position2']
+        files=request.FILES['files']
+        #profile
+        fullname=request.POST['fullname']
+        email=request.POST['email']
+        mobile=request.POST['mobile']
+        country=request.POST['country']
+        profilepic=request.FILES['profilepic']
+        std=Register_freelance(college=ini,
+                               special=special,
+                               education=education,
+                               startdate=start,
+                               enddate=end,
+                               proffecional_title=proffectional,
+                               service=title,
+                               skills=skill,
+                               over_view=overview,
+                               company=company,
+                               position=position,
+                               Rate=rate,
+                               start=start_date,
+                               end=end_date,
+                               url=address,
+                               project_title=project,
+                               position2=Position2,
+                               file=files,
+                               full_name=fullname,
+                               email=email,
+                               mobile=mobile,
+                               country=country,
+                               profile_pic=profilepic)
+        std.save()
+        # messages(request,'success')
+        return redirect('freereg')
         
-    return render(request, 'new_registration.html')
+    return render(request,'new_registration.html')
 
 def registration(request):
     it = categories.objects.all()
@@ -476,11 +538,9 @@ def createmodel(request):
         format = request.POST['format']
         modeltype = request.POST['modeltype']
         category = request.POST['category']
-        subcategory = request.POST['subcategory']
-        fbx = request.FILES['fbx']
+        # fbx = request.FILES['fbx']
 
-        item = Product(modelname=modelname, description=description, gib=gib, price=price, types=types, format=format, modeltype=modeltype, category_id=category,
-                     subcategory_id=subcategory,fbx=fbx)
+        item = Product(modelname=modelname, description=description, gib=gib, price=price, types=types, format=format, modeltype=modeltype, category_id=category)
         item.save()
         return redirect('addmodel')
     else:

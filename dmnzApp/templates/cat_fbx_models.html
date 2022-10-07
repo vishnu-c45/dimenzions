@@ -98,9 +98,8 @@
                                     Formats <i class="fa-solid fa-chevron-down  ps-lg-2"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    
                                     <li>
-                                        <a   class="dropdown-item" href="{% url 'three' %}">3dx</a>
+                                        <a onclick="three()"  class="dropdown-item" href="{% url 'three' %}">3dx</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{% url 'fbx' %}">fbx</a>
@@ -108,7 +107,6 @@
                                     <li>
                                         <a class="dropdown-item" href="{% url 'obj' %}">obj</a>
                                     </li>
-
                                     <li>
                                         <a class="dropdown-item" href="{% url 'model' %}">All</a>
                                     </li>
@@ -190,7 +188,7 @@
     <section class="products">
         <div class="cards-list container">
 
-            {% for p in all %}
+            {% for p in three %}
             <div class="card3 shadow " id="all"
                  style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
                 <div class="black_fillter">

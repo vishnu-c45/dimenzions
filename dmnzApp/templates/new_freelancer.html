@@ -435,17 +435,17 @@
                             }
                         </style>
                     </section>
-
+                   {% for p in person %}
                     <section class="listfree pb-3 ">
-                        <a href="{% url 'profile'%}">
+                        <a href="{% url 'profile' p.id %}">
                         <div class="listfree0 shadow w-100 p-3 mb-3 mt-1 ">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="{% static 'images/prof.png'%}" alt="">
+                                    <img src="{{p.profile_pic.url}}" style="width:80px ;" alt="">
                                 </div>
                                 <div class="col-lg-6 pt-3 text-dark">
-                                    <h6>Jessica Stive</h6>
-                                    <h5>Making it all make sense</h5>
+                                    <h6>{{p.full_name}}</h6>
+                                    <h5>{{p.service}}</h5>
                                     <div class="row ">
                                         <div class="col-4 flex justify-content-start grybdr">
                                             <p style="color: gray;" class="m-0 p-0">$ 650.00 / hr</p>
@@ -476,7 +476,7 @@
 
                             <p class="pt-2 pt-lg-2 text-dark" style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero omnis quaerat velit aperiam veritatis repudiandae cum vel commodi porro eveniet, praesentium ab neque facilis </p>
                             <div>
-                                <p class="btn btn-outline-secondary px-5 mx-2 bob"> CSS</p>
+                                <p class="btn btn-outline-secondary px-5 mx-2 bob">{{p.proffecional_title}}</p>
                                 <p class="btn btn-outline-secondary px-5 mx-2 bob"> HTML</p> 
                                 <p class="btn btn-outline-secondary px-5 mx-2 bob"> Photoshop</p>
                                 <p class="btn btn-outline-secondary px-5 mx-2 bob"> Figma</p>
@@ -485,7 +485,7 @@
 
                         </div>
                     </a>
-
+{% comment %} 
                     <a href="{% url 'profile'%}">
                         <div class="listfree0 shadow w-100 p-3 mb-3 mt-1 ">
                             <div class="row">
@@ -533,10 +533,10 @@
                             </div>
 
                         </div>
-                    </a>
+                    </a> {% endcomment %}
 
 
-                        
+                 {% endfor %}       
 
                     </section>
 
