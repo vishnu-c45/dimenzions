@@ -121,6 +121,23 @@ def freereg(request):
         
     return render(request,'new_registration.html')
 
+def cartitem(request,pk,k):
+    prod=Product(id=pk)
+    user1=User(id=k)
+    std=cart(product=prod,
+           User=user1,)
+    std.save()
+    return redirect('userhome')
+
+def viewcart(request,pk):
+    ca=cart.objects.filter(User=pk)
+    return render(request,'cart.html',{'ca':ca})
+
+def view_items(request,pk,k):
+    std=Product.objects.get(id=pk)
+    return render(request,'view_item.html',{'std':std,'u':k})
+    
+
 def registration(request):
     it = categories.objects.all()
     if request.method == 'POST':
@@ -703,22 +720,22 @@ def store(request):
 	return render(request, 'store/store.html', context)
 
 
-def cart(request):
-    if 'SAdm_id' in request.session:
-        if request.session.has_key('SAdm_id'):
-            SAdm_id = request.session['SAdm_id']
-        else:
-            return redirect('/')
-        it = categories.objects.all()
-        member = User.objects.get(id=SAdm_id)
-        data = cartData(request)
-        print(data['cartItems'])
-        cartItems = data['cartItems']
-        order = data['order']
-        items = data['items']
+def cart_item(request):
+    # if 'SAdm_id' in request.session:
+    #     if request.session.has_key('SAdm_id'):
+    #         SAdm_id = request.session['SAdm_id']
+    #     else:
+    #         return redirect('/')
+    #     it = categories.objects.all()
+    #     member = User.objects.get(id=SAdm_id)
+    #     data = cartData(request)
+    #     print(data['cartItems'])
+    #     cartItems = data['cartItems']
+    #     order = data['order']
+    #     items = data['items']
 
-        context = {'items':items, 'order':order, 'cartItems':cartItems,'member':member,'it':it,}
-        return render(request, 'cart.html', context)
+    #     context = {'items':items, 'order':order, 'cartItems':cartItems,'member':member,'it':it,}
+    return render(request, 'cart.html')
 
 def checkout(request):
 	if 'SAdm_id' in request.session:

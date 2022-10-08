@@ -189,6 +189,10 @@
         <div class="cards-list container">
 
             {% for p in three %}
+            <a href="{% url 'view_items' p.id user.id %}"
+            class="card1 bg-light shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="50">
             <div class="card3 shadow " id="all"
                  style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
                 <div class="black_fillter">
@@ -219,6 +223,7 @@
                     </div>
                 </div>
             </div>
+        </a>
             {% endfor %}
 
             <!-- category ......3dx -->

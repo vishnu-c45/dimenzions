@@ -77,7 +77,7 @@ urlpatterns = [
    
 	#Leave as empty string for base url
 	# re_path(r'^store$', views.store, name="store"),
-	re_path(r'^cart/$', views.cart, name="cart"),
+	re_path(r'^cart/$', views.cart_item, name="cart"),
 	re_path(r'^checkout/$', views.checkout, name="checkout"),
 
 	re_path(r'^update_item/$', views.updateItem, name="update_item"),
@@ -97,4 +97,7 @@ urlpatterns = [
     
     path('fbx',views.fbx,name='fbx'),
     path('obj',views.obj,name='obj'),
+    path('view/<int:pk>/<int:k>',views.view_items,name='view_items'),
+    path('cartitem/<int:pk>/<int:k>/',views.cartitem,name='cartitem'),
+    path('viewcart/<int:pk>',views.viewcart,name='viewcart'),
 ]

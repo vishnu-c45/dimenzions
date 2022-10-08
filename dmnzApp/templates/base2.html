@@ -57,6 +57,9 @@
                             <a class="nav-link " href="{% url 'model'%}">CATEGORY</a>
                         </li>
                         <li class="nav-item mx-lg-3">
+                            <a class="nav-link " href="{% url 'viewcart' user.id %}">CART</a>
+                        </li>
+                        <li class="nav-item mx-lg-3">
                             <form class="d-flex">
                                 <input class="form-control me-0 rounded-0" type="search" placeholder="Search"
                                     aria-label="Search">
@@ -185,8 +188,14 @@
                                 </a>
                             </li>
                             <li class="py-2">
-                                <a href="#">
+                                <a href="{% url 'model' %}">
                                     <h6>Categoty</h6>
+                                </a>
+                            </li>
+
+                            <li class="py-2">
+                                <a href="{% url 'model' %}">
+                                    <h6>Cart</h6>
                                 </a>
                             </li>
 

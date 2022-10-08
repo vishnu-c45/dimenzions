@@ -67,6 +67,10 @@ class Register_freelance(models.Model):
     skills=models.CharField(max_length=255,default='')
     over_view=models.CharField(max_length=255,default='')
     
+class cart(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    User=models.ForeignKey(User,on_delete=models.CASCADE)    
+    
 
 
 
