@@ -100,4 +100,6 @@ urlpatterns = [
     path('view/<int:pk>/<int:k>',views.view_items,name='view_items'),
     path('cartitem/<int:pk>/<int:k>/',views.cartitem,name='cartitem'),
     path('viewcart/<int:pk>',views.viewcart,name='viewcart'),
+    path('price_low',views.price_low,name='price_low'),
+     path('price_high',views.price_high,name='price_high'),
 ]

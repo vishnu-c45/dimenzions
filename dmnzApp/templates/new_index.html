@@ -9,20 +9,24 @@
             <b>
                 <h1 style="color: rgb(255, 5, 72);" class="headtext">3D Models</h1>
             </b>
-            <div class="my-3">
-                <a href="{% url 'model' %}"
-                   class="btn mx-2"
-                   style="background-color: rgb(255, 5, 72);
-                          color: white;">Buy 3D Model</a>
+            <div class="my-3" >
+                  <button  style="background-color: rgb(255, 5, 72); " class="btn mx-2 text-white" onclick="tap()" >
+                   BUY 3D MODEL
+                  </button>
                 <a href="{% url 'freelancer'%}"
                    class="btn mx-2 text-light"
                    style="background-color: gray;">Frelancer</a>
             </div>
+            <script>
+                const tap=()=>{
+                    alert('please login')
+                }
+            </script>
         </div>
         <style>
             .banner {
                 height: 80vh;
-                background-image: url('{% static 'images/assn.png' %}');
+                background-image: url('{% static "images/assn.png" %}');
                 background-size: 100% 100%;
                 background-attachment: fixed;
 
@@ -107,7 +111,7 @@
         <style>
             .pinkbox {
                 background-color: rgb(255, 5, 72);
-                background-image: url('{% static 'images/triangle.png' %}');
+                background-image: url('{% static 'images/triangle.png %});
                 background-size: contain;
             }
 
@@ -176,7 +180,7 @@
                  role="tabpanel"
                  aria-labelledby="home-tab">
                 <div class="cards-list">
-                    <a href="{% url 'product'%}"
+                    <div onclick="tap()"
                        class="card1 bg-light shadow-lg"
                        data-aos="fade-up"
                        data-aos-delay="50">
@@ -199,7 +203,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                     <a href="{% url 'product'%}"
                     class="card1 bg-light shadow-lg"
                     data-aos="fade-up"

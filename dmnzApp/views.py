@@ -11,6 +11,7 @@ import os
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
+from django.db.models import Min,Max
 
 # Create your views here.
 
@@ -31,7 +32,20 @@ def model(request):
     three=Product.objects.filter(format='.3dx')
     return render(request, 'new_models.html',{'all':all,'three':three})
 
+#.............price low to high .............
+
+def price_low(request):
+    price_low=Product.objects.all().order_by('price')
+    return render(request,'cat_price_low.html',{'three':price_low})
+
+
+def price_high(request):
+    price_high=Product.objects.all().order_by('-price')
+    return render(request,'cat_price_high.html',{'three':price_high})
+    
+
 #.................category...3dx...................
+
 def three(request):
     three=Product.objects.filter(format='.3dx')
     return render(request, 'cat_three_models.html',{'three':three})
@@ -131,7 +145,12 @@ def cartitem(request,pk,k):
 
 def viewcart(request,pk):
     ca=cart.objects.filter(User=pk)
-    return render(request,'cart.html',{'ca':ca})
+    co=cart.objects.filter(User=pk).count()
+    total=0
+    for p in ca:
+        total+=int(p.product.price)
+        
+    return render(request,'cart.html',{'ca':ca,'total':total,'co':co})
 
 def view_items(request,pk,k):
     std=Product.objects.get(id=pk)
@@ -364,10 +383,10 @@ def user_logout(request):
     if 'SAdm_id' in request.session:
         request.session.flush()
         it = categories.objects.all()
-        return render(request, 'home.html',{'it': it})
+        return render(request, 'new_index.html',{'it': it})
     else:
         it = categories.objects.all()
-        return render(request, 'home.html',{'it': it})
+        return render(request, 'new_index.html',{'it': it})
 
 def admin_logout(request):
     if 'admid' in request.session:

@@ -1,21 +1,21 @@
-{% extends 'index.html' %}
+{% extends 'base2.html' %}
 {% load static %}
-{% block content %}
+{% block body %}
 
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="box-element">
 
-				<a  class="btn btn-outline-dark" href="{% url 'userhome' %}">&#x2190; Continue Shopping</a>
+				<a style="background-color: rgb(255, 5, 72)" class="btn btn-outline-dark text-white" href="{% url 'userhome' %}">&#x2190; Continue Shopping</a>
 
 				<br>
 				<br>
 				<table class="table">
 					
 					<tr>
-						<th><h5>Items: <strong>{{ca.product.modelname}}</strong></h5></th>
-						<th><h5>Total:<strong> ${{order.get_cart_total|floatformat:2}}</strong></h5></th>
+						<th><h5>Items: <strong>{{co}}</strong></h5></th>
+						<th><h5>Total:<strong> ${{total|floatformat:2}}</strong></h5></th>
 						<th>
 							<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
 						</th>
@@ -27,40 +27,89 @@
 
 			<br>
 			<div class="box-element">
-				<div class="cart-row">
-					<!-- <div style="flex:2"></div> -->
-					<div class="" style="padding-left:50px;"></div>
-
-					<div style="flex:2"><strong>Item</strong></div>
-					<div style="flex:1"><strong>Price</strong></div>
-					<div style="flex:1"><strong>Quantity</strong></div>
-					<div style="flex:1"><strong>Total</strong></div>
-				</div>
-				{% for p in ca %}
-				<div class="cart-row">
-					<!-- <div style="flex:2">
+			
+				
+				<!-- <table>
+					<div class="cart-row">
+						<div style="flex:2">
+							
+							<model-viewer class="home-img3" src="{{item.product.imageURL}}" alt="New York" ar
+							ar-modes="webxr scene-viewer quick-look" environment-image="neutral" auto-rotate
+							camera-controls></model-viewer>
+						</div> 
+						<div class="" style="padding-left:50px;"></div>
+	
+						<div style="flex:2"><p>{{p.product.modelname}}</p></div>
+						<div style="flex:1"><p>${{p.product.price|floatformat:2}}</p></div>
+						<div style="flex:1">
+							<p class="quantity">{{item.quantity}}</p>
+							<div class="quantity">
+								<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
 						
-						<model-viewer class="home-img3" src="{{item.product.imageURL}}" alt="New York" ar
-                        ar-modes="webxr scene-viewer quick-look" environment-image="neutral" auto-rotate
-                        camera-controls></model-viewer>
-					</div> -->
-					<div class="" style="padding-left:50px;"></div>
-
-					<div style="flex:2"><p>{{p.product.modelname}}</p></div>
-					<div style="flex:1"><p>${{p.product.price|floatformat:2}}</p></div>
-					<div style="flex:1">
-						<p class="quantity">{{item.quantity}}</p>
-						<div class="quantity">
-							<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
-					
-							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+								<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+							</div>
 						</div>
+						<div style="flex:1"><p>${{p.product.price|floatformat:2}}</p></div>
 					</div>
-					<div style="flex:1"><p>${{p.product.price|floatformat:2}}</p></div>
-				</div>
-				{% endfor %}
-			</div>
+				</table>
+				
+			</div> -->
+
+
+
+			<div class="table-responsive" >
+				<table  class="table  ">
+					<thead >
+					<tr>
+					  <th style="text-align: center;">Item</th>
+					  <th >Price</th>
+					  <th >Quntity</th>
+					  <th style="text-align: right ;">Total</th>
+					  
+					</tr>
+				</thead>
+
+				<tbody >
+					{% for p in ca %}
+					<tr>
+						<td style="text-align: center;"><strong>{{p.product.modelname}}</strong></td>
+						<td ><strong>{{p.product.price|floatformat:2}}</strong></td>
+						<td><strong></strong>{{item.quantity}}</td>
+						<td style="text-align: right ;"><strong>{{p.product.price|floatformat:2}}</strong></td>
+						
+						
+
+
+					</tr>
+					{% endfor %}
+				
+			 
+			
+
+
+		
+			  </div>
+
+
+		  
+				   
+				
+				  
+				
+				</tbody>
+
+
+
+
+				
+
+				</table >
+
+            </div>
+
+
 		</div>
 	</div>
 </div>
-{% endblock content %}
+</div>
+{% endblock %}
