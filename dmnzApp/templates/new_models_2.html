@@ -81,10 +81,11 @@
                                     <li>
                                         <a class="dropdown-item" href="{% url 'price_high' %}">High to low</a>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         </li>
-                        <!-- <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
+                        <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
                             <div class="dropdown">
                                 <a class="btn btn-outline-secondary abc"
                                    href="#"
@@ -95,8 +96,9 @@
                                     Formats <i class="fa-solid fa-chevron-down  ps-lg-2"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    
                                     <li>
-                                        <a onclick="three()"  class="dropdown-item" href="{% url 'three' %}">3dx</a>
+                                        <a   class="dropdown-item" href="{% url 'three' %}">3dx</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{% url 'fbx' %}">fbx</a>
@@ -104,13 +106,14 @@
                                     <li>
                                         <a class="dropdown-item" href="{% url 'obj' %}">obj</a>
                                     </li>
+
                                     <li>
                                         <a class="dropdown-item" href="{% url 'model' %}">All</a>
                                     </li>
                                 </ul>
                             </div>
-                        </li> -->
-                        <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
+                        </li>
+                        <!-- <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
                             <div class="dropdown">
                                 <a class="btn btn-outline-secondary abcd"
                                    href="#"
@@ -132,10 +135,10 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li class="nav-item mt-3 mt-lg-0">
+                        <!-- <li class="nav-item mt-3 mt-lg-0">
                             <div class="dropdown ">
                                 <a class="btn btn-outline-secondary abcd"
                                    href="#"
@@ -157,7 +160,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -182,15 +185,11 @@
             }
         </style>
     </section>
-    <section class="products">
+    <section class="products ">
         <div class="cards-list container">
-
-            {% for p in three %}
-            <a href="{% url 'view_items' p.id user.id %}"
-            class="card1 bg-light shadow-lg"
-            data-aos="fade-up"
-            data-aos-delay="50">
-            <div class="card3 shadow " id="all"
+            {% for p in all %}
+          
+            <div class="card3 shadow " onclick="tap()" id="all"
                  style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
                 <div class="black_fillter">
                     <div class="frame pt-1">
@@ -220,10 +219,17 @@
                     </div>
                 </div>
             </div>
-        </a>
+           
+            
             {% endfor %}
-
+         
             <!-- category ......3dx -->
+
+            <script>
+                const tap=()=>{
+                    alert('please login')
+                }
+            </script>
 
           
         <div class="row my-3">

@@ -1,4 +1,5 @@
 from multiprocessing import context
+from unicodedata import category
 from django.shortcuts import render,redirect
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
@@ -16,10 +17,16 @@ from django.db.models import Min,Max
 # Create your views here.
 
 def home(request):
-    return render(request, 'new_index.html')
+    new=Product.objects.filter(category=2)
+    special=Product.objects.filter(category=1)
+    feature=Product.objects.filter(id=2)
+    return render(request, 'new_index.html',{'new':new,'fea':feature,'sp':special})
 
 def about(request):
     return render(request, 'new_about.html')
+
+def about_two(request):
+    return render(request, 'new_about_two.html')
 
 def checkout(request):
     return render(request, 'new_checkout.html')
@@ -27,10 +34,18 @@ def checkout(request):
 def contact(request):
     return render(request, 'new_contact.html')
 
+def contact_two(request):
+    return render(request, 'new_contact_two.html')
+
 def model(request):
     all=Product.objects.all()
     three=Product.objects.filter(format='.3dx')
     return render(request, 'new_models.html',{'all':all,'three':three})
+
+def model_two(request):
+    all=Product.objects.all()
+    three=Product.objects.filter(format='.3dx')
+    return render(request, 'new_models_2.html',{'all':all,'three':three})
 
 #.............price low to high .............
 
@@ -154,7 +169,8 @@ def viewcart(request,pk):
 
 def view_items(request,pk,k):
     std=Product.objects.get(id=pk)
-    return render(request,'view_item.html',{'std':std,'u':k})
+    new=Product.objects.filter(category=2)
+    return render(request,'view_item.html',{'std':std,'u':k,'new':new})
     
 
 def registration(request):
@@ -194,7 +210,7 @@ def admin_login(request):
                 return redirect('admin_dashboard')
             else:
                 print("hi1")
-                return render(request,'new_index2.html')   
+                return redirect('userhome')   
                      
         else:
             print("hi3")
@@ -209,7 +225,10 @@ def admin_login(request):
 
 
 def userhome(request):
-    return render(request, 'new_index2.html')
+    new=Product.objects.filter(category=2)
+    special=Product.objects.filter(category=1)
+    feature=Product.objects.filter(id=2)
+    return render(request, 'new_index2.html',{'new':new,'sp':special,'fea':feature})
 
 
 def admin_dashboard(request):

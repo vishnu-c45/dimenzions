@@ -176,15 +176,18 @@
                  role="tabpanel"
                  aria-labelledby="home-tab">
                 <div class="cards-list">
-                    <a href="{% url 'product'%}"
+                    {% for p in new %}
+                    <a href="{% url 'view_items' p.id user.id %}">
+                   
+                    <div onclick="tap()"
                        class="card1 bg-light shadow-lg"
                        data-aos="fade-up"
                        data-aos-delay="50">
                         <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="{% static 'images/model.png'%}" class="card-img-top" alt="...">
+                            <img src="{{p.gib.url}}" style="max-width:100%; max-height:280px " class="card-img-top" alt="...">
                             <div class="card-body d-flex container">
                                 <div class="left">
-                                    <h5 class="card-title text-dark">Creature Walk</h5>
+                                    <h5 class="card-title text-dark">{{p.modelname}}</h5>
                                     <div class="star">
                                         <span class="fa fa-star checked"></span>
                                         <span class="fa fa-star checked"></span>
@@ -192,82 +195,40 @@
                                         <span class="fa fa-star "></span>
                                         <span class="fa fa-star"></span>
                                     </div>
-                                    <h5 class="price my-2">100.0 Rs</h5>
+                                    <h5 class="price my-2">{{p.price}} Rs</h5>
                                 </div>
                                 <div class="right">
                                     <h5>3D</h5>
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+                    {% endfor %} 
                     </a>
-                    <a href="{% url 'product'%}"
-                    class="card1 bg-light shadow-lg"
-                    data-aos="fade-up"
-                    data-aos-delay="50">
-                     <div class="card border-0 " style="height: 100%; width:100%;">
-                         <img src="{% static 'images/model.png'%}" class="card-img-top" alt="...">
-                         <div class="card-body d-flex container">
-                             <div class="left">
-                                 <h5 class="card-title text-dark">Creature Walk</h5>
-                                 <div class="star">
-                                     <span class="fa fa-star checked"></span>
-                                     <span class="fa fa-star checked"></span>
-                                     <span class="fa fa-star checked"></span>
-                                     <span class="fa fa-star "></span>
-                                     <span class="fa fa-star"></span>
-                                 </div>
-                                 <h5 class="price my-2">100.0 Rs</h5>
-                             </div>
-                             <div class="right">
-                                 <h5>3D</h5>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-
-                    <a href="{% url 'product'%}"
-                       class="card1 bg-light shadow-lg"
-                       data-aos="fade-up"
-                       data-aos-delay="50">
-                        <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="{% static 'images/model.png'%}" class="card-img-top" alt="...">
-                            <div class="card-body d-flex container">
-                                <div class="left">
-                                    <h5 class="card-title text-dark">Creature Walk</h5>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star "></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <h5 class="price my-2">100.0 Rs</h5>
-                                </div>
-                                <div class="right">
-                                    <h5>3D</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                    
-                    
                 </div>
             </div>
+            
+
+
+
             <div class="tab-pane fade"
                  id="special"
                  role="tabpanel"
                  aria-labelledby="profile-tab">
                 <div class="cards-list container">
-                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
-                        <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                    {% for p in sp %}
+                    <a href="{% url 'view_items' p.id user.id %}">
+                    <div onclick="tap()"
+                      class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                        <div class="card border-0 "  style="height: 100%; width:100%;">
+                            <img src="{{p.gib.url}}"
                                  class="card-img-top"
-                                 alt="...">
+                                 alt="..." style="max-width:100%; max-height:280px ">
                             <div class="card-body d-flex container">
                                 <div class="left">
                                     <h5 class="card-title text-dark">
-                                        Creature Walk
+                                        {{p.modelname}}
                                     </h5>
                                     <div class="star">
                                         <span class="fa fa-star checked"></span>
@@ -277,7 +238,7 @@
                                         <span class="fa fa-star"></span>
                                     </div>
                                     <h5 class="price my-2">
-                                        100.0 Rs
+                                        {{p.price}} Rs
                                     </h5>
                                 </div>
                                 <div class="right">
@@ -286,82 +247,33 @@
                                     </h5>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
-                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
-                        <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
-                                 class="card-img-top"
-                                 alt="...">
-                            <div class="card-body d-flex container">
-                                <div class="left">
-                                    <h5 class="card-title text-dark">
-                                        Creature Walk
-                                    </h5>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star "></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <h5 class="price my-2">
-                                        100.0 Rs
-                                    </h5>
-                                </div>
-                                <div class="right">
-                                    <h5>
-                                        3D
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
-                        <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
-                                 class="card-img-top"
-                                 alt="...">
-                            <div class="card-body d-flex container">
-                                <div class="left">
-                                    <h5 class="card-title text-dark">
-                                        Creature Walk
-                                    </h5>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star "></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <h5 class="price my-2">
-                                        100.0 Rs
-                                    </h5>
-                                </div>
-                                <div class="right">
-                                    <h5>
-                                        3D
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    {% endfor %}
+                    </a>
+                </div>    
+
+            </div>    
+            
+                   
             <div class="tab-pane fade"
                  id="collection"
                  role="tabpanel"
                  aria-labelledby="contact-tab">
                 <div class="cards-list container">
-                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                    {% for p in new %}
+                    <a href="{% url 'view_items' p.id user.id %}">
+                    <div onclick="tap()"
+                      class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
                         <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                            <img src="{{p.gib.url}}"
                                  class="card-img-top"
-                                 alt="...">
+                                 alt="..." style="max-width:100%; max-height:280px">
                             <div class="card-body d-flex container">
                                 <div class="left">
                                     <h5 class="card-title text-dark">
-                                        Card title
+                                        {{p.modelname}}
                                     </h5>
                                     <div class="star">
                                         <span class="fa fa-star checked"></span>
@@ -371,7 +283,7 @@
                                         <span class="fa fa-star"></span>
                                     </div>
                                     <h5 class="price my-2">
-                                        100.0 Rs
+                                        {{p.price}}
                                     </h5>
                                 </div>
                                 <div class="right">
@@ -382,80 +294,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
-                        <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
-                                 class="card-img-top"
-                                 alt="...">
-                            <div class="card-body d-flex container">
-                                <div class="left">
-                                    <h5 class="card-title text-dark">
-                                        Card title
-                                    </h5>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star "></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <h5 class="price my-2">
-                                        100.0 Rs
-                                    </h5>
-                                </div>
-                                <div class="right">
-                                    <h5>
-                                        3D
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
-                        <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
-                                 class="card-img-top"
-                                 alt="...">
-                            <div class="card-body d-flex container">
-                                <div class="left">
-                                    <h5 class="card-title text-dark">
-                                        Card title
-                                    </h5>
-                                    <div class="star">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star "></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <h5 class="price my-2">
-                                        100.0 Rs
-                                    </h5>
-                                </div>
-                                <div class="right">
-                                    <h5>
-                                        3D
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    </a>
                 </div>
-            </div>
+            </div>        
+                   
+                   
             <div class="tab-pane fade"
                  id="featured"
                  role="tabpanel"
                  aria-labelledby="contact-tab">
                 <div class="cards-list">
-                    <div class="card1  shadow-lg" data-aos="fade-up" data-aos-delay="50">
+                    {% for p in fea %}
+                    <a href="{% url 'view_items' p.id user.id %}">
+                    <div onclick="tap()"
+                     class="card1  shadow-lg" data-aos="fade-up" data-aos-delay="50">
                         <div class="card border-0 " style="height: 100%; width:100%;">
-                            <img src="https://miro.medium.com/max/888/1*Kkvak-YrvGEGQgYJTHrrFQ.jpeg"
+                            <img src="{{p.gib.url}}"
                                  class="card-img-top"
-                                 alt="...">
+                                 alt="..." style="max-width:100%; max-height:280px">
                             <div class="card-body d-flex container">
                                 <div class="left">
                                     <h5 class="card-title text-dark">
-                                        Card title
+                                        {{p.modelname}}
                                     </h5>
                                     <div class="star">
                                         <span class="fa fa-star checked"></span>
@@ -465,7 +326,7 @@
                                         <span class="fa fa-star"></span>
                                     </div>
                                     <h5 class="price my-2">
-                                        100.0 Rs
+                                        {{p.price}}
                                     </h5>
                                 </div>
                                 <div class="right">
@@ -476,6 +337,8 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    </a>
                 </div>
             </div>
         </div>

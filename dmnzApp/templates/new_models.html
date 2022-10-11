@@ -113,7 +113,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
+                        <!-- <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
                             <div class="dropdown">
                                 <a class="btn btn-outline-secondary abcd"
                                    href="#"
@@ -135,10 +135,10 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li class="nav-item mt-3 mt-lg-0">
+                        <!-- <li class="nav-item mt-3 mt-lg-0">
                             <div class="dropdown ">
                                 <a class="btn btn-outline-secondary abcd"
                                    href="#"
@@ -160,7 +160,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -185,15 +185,14 @@
             }
         </style>
     </section>
-    <section class="products">
+    <section class="products ">
         <div class="cards-list container">
-
             {% for p in all %}
             <a href="{% url 'view_items' p.id user.id %}"
                     class="card1 bg-light shadow-lg"
                     data-aos="fade-up"
                     data-aos-delay="50">
-            <div class="card3 shadow" onclick="clicked()" id="all"
+            <div class="card3 shadow " onclick="clicked()" id="all"
                  style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
                 <div class="black_fillter">
                     <div class="frame pt-1">
