@@ -2,7 +2,6 @@ from django.urls import path,include
 from .import views
 from django.urls import re_path
 
-
 urlpatterns = [
     # path('',views.index,name='index'),
     # path('register',views.register,name='register'),
@@ -100,9 +99,16 @@ urlpatterns = [
     
     path('fbx',views.fbx,name='fbx'),
     path('obj',views.obj,name='obj'),
-    path('view/<int:pk>/<int:k>',views.view_items,name='view_items'),
-    path('cartitem/<int:pk>/<int:k>/',views.cartitem,name='cartitem'),
-    path('viewcart/<int:pk>',views.viewcart,name='viewcart'),
+    path('view/<int:pk>',views.view_items,name='view_items'),
+    path('view_two/<int:pk>',views.view_items_two,name='view_items_two'),
+    path('cartitem/<int:pk>',views.cartitem,name='cartitem'),
+    path('viewcart',views.viewcart,name='viewcart'),
     path('price_low',views.price_low,name='price_low'),
     path('price_high',views.price_high,name='price_high'),
+    path('photoshop',views.photoshop,name='photoshop'),
+    path('uidesign',views.ui_design,name='ui_design'),
+    path('house_plans',views.house_plans,name='house_plans'),
+    path('logo_creation',views.logo_creation,name='logo_creation'),
+    path('drawings',views.drawings,name='drawings'),
+    
 ]

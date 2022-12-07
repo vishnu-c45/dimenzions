@@ -74,6 +74,23 @@ class cart(models.Model):
 
 
 
+class designation(models.Model):
+    designations= models.CharField(max_length=100)
+
+    def __str__(self): 
+        return self.designations
+
+class Service_form(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,default='')
+    user_name=models.CharField(max_length=100,default='')
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,default='')
+    service_freelancer=models.ForeignKey(Register_freelance,on_delete=models.CASCADE,default='')
+    phone_number=models.CharField(max_length=100,default='')
+    email=models.CharField(max_length=100,default='')
+    Address=models.CharField(max_length=100,default='')
+    description=models.CharField(max_length=100,default='')
+    status=models.CharField(max_length=100,default='')
+
     
 
 

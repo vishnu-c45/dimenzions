@@ -1,5 +1,6 @@
 from multiprocessing import context
 from unicodedata import category
+from winreg import REG_QWORD
 from django.shortcuts import render,redirect
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
@@ -38,41 +39,77 @@ def contact_two(request):
     return render(request, 'new_contact_two.html')
 
 def model(request):
-    all=Product.objects.all()
+    all=Product.objects.filter(category_id=1)
     three=Product.objects.filter(format='.3dx')
     return render(request, 'new_models.html',{'all':all,'three':three})
+
+def photoshop(request):
+    all=Product.objects.filter(category_id=4)
+    price_low=Product.objects.filter(category_id=4).order_by('price')
+    price_high=Product.objects.filter(category_id=4).order_by('-price')
+    return render(request,'category_photoshop.html',{'all':all,'three':price_low,'high_to':price_high})
+
+def ui_design(request):
+    all=Product.objects.filter(category_id=5)
+    price_low=Product.objects.filter(category_id=5).order_by('price')
+    price_high=Product.objects.filter(category_id=5).order_by('-price')
+    return render(request,'category_uidesign.html',{'all':all,'three':price_low,'high_to':price_high})
+
+def house_plans(request):
+    all=Product.objects.filter(category_id=6)
+    price_low=Product.objects.filter(category_id=6).order_by('price')
+    price_high=Product.objects.filter(category_id=6).order_by('-price')
+    return render(request,'category_houseplans.html',{'all':all,'three':price_low,'high_to':price_high})
+
+def logo_creation(request):
+    all=Product.objects.filter(category_id=7)
+    price_low=Product.objects.filter(category_id=7).order_by('price')
+    price_high=Product.objects.filter(category_id=7).order_by('-price')
+    return render(request,'category_logo.html',{'all':all,'three':price_low,'high_to':price_high})
+
+def drawings(request):
+    all=Product.objects.filter(category_id=8)
+    price_low=Product.objects.filter(category_id=8).order_by('price')
+    price_high=Product.objects.filter(category_id=8).order_by('-price')
+    return render(request,'category_drawings.html',{'all':all,'three':price_low,'high_to':price_high})
+
+    
+    
+
+    
+    
 
 def model_two(request):
     all=Product.objects.all()
     three=Product.objects.filter(format='.3dx')
-    return render(request, 'new_models_2.html',{'all':all,'three':three})
+    return render(request, 'new_models_2.html',{'all':all,})
 
 #.............price low to high .............
 
 def price_low(request):
-    price_low=Product.objects.all().order_by('price')
+    price_low=Product.objects.filter(category_id=1).order_by('price')
     return render(request,'cat_price_low.html',{'three':price_low})
 
 
 def price_high(request):
-    price_high=Product.objects.all().order_by('-price')
+    price_high=Product.objects.filter(category_id=1).order_by('-price')
     return render(request,'cat_price_high.html',{'three':price_high})
     
 
 #.................category...3dx...................
 
 def three(request):
-    three=Product.objects.filter(format='.3dx')
+    three=Product.objects.filter(format='.3dx',category_id=1)
     return render(request, 'cat_three_models.html',{'three':three})
 
 #.................fbx..........................
 def fbx(request):
-    fbx=Product.objects.filter(format='.fbx')
+    fbx=Product.objects.filter(format='.fbx',category_id=1)
     return render(request, 'cat_three_models.html',{'three':fbx})
 
 #....................obj......................
 def obj(request):
-    obj=Product.objects.filter(format='.obj')
+    obj=Product.objects.filter(format='.obj',category_id=1)
     return render(request, 'cat_obj_models.html',{'three':obj})
 
 
@@ -150,27 +187,64 @@ def freereg(request):
         
     return render(request,'new_registration.html')
 
-def cartitem(request,pk,k):
-    prod=Product(id=pk)
-    user1=User(id=k)
-    std=cart(product=prod,
+def cartitem(request,pk):
+    if 'USID' in request.session:
+       k=request.session['USID']  
+       prod=Product(id=pk)
+       user1=User(id=k)
+       std=cart(product=prod,
            User=user1,)
-    std.save()
-    return redirect('userhome')
+       std.save()
+       return redirect('userhome')
+    return render('user_logout')
 
-def viewcart(request,pk):
-    ca=cart.objects.filter(User=pk)
-    co=cart.objects.filter(User=pk).count()
-    total=0
-    for p in ca:
-        total+=int(p.product.price)
+def viewcart(request):
+    if 'USID' in request.session:
+       pk=request.session['USID']  
+       ca=cart.objects.filter(User=pk)
+       co=cart.objects.filter(User=pk).count()
+       total=0
+       for p in ca:
+         total+=int(p.product.price)
+       return render(request,'cart.html',{'ca':ca,'total':total,'co':co})
+    return redirect('user_logout')   
+
+def view_items(request,pk):
+    if 'USID' in request.session:
+        k=request.session['USID']
+        user=User.objects.get(id=k)
+        std=Product.objects.get(id=pk)
+        new=Product.objects.filter(category=2)
         
-    return render(request,'cart.html',{'ca':ca,'total':total,'co':co})
+        if request.method=='POST':
+            name=request.POST['name']
+            email=request.POST['email']
+            address=request.POST['address']
+            phone=request.POST['phone']
+            description=request.POST['desc']
+            status='pending'
+            product=std
+            user_id=user
+            servicee_freelancer=0
+            sfm=Service_form(user_name=name,
+                             email=email,
+                             Address=address,
+                             phone_number=phone,
+                             description=description,
+                             status=status,
+                             product=product,
+                             user=user_id,
+                             servicee_freelancer=servicee_freelancer)
+            sfm.save()
+        return render(request,'view_item_2.html',{'std':std,'new':new,'u':user})
+    return redirect('user_logout')
 
-def view_items(request,pk,k):
+
+def view_items_two(request,pk):
     std=Product.objects.get(id=pk)
     new=Product.objects.filter(category=2)
-    return render(request,'view_item.html',{'std':std,'u':k,'new':new})
+    return render(request,'view_item.html',{'st':std,'new':new})
+  
     
 
 def registration(request):
@@ -203,21 +277,19 @@ def admin_login(request):
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
-        request.session["uid"] = user.id
+        # request.session["uid"] = user.id
         if user is not None:
-            auth.login(request, user)
-            if user.is_superuser==1:
+            if user.is_staff:
+                auth.login(request, user)
+                request.session['admid']=user.id
                 return redirect('admin_dashboard')
             else:
-                print("hi1")
-                return redirect('userhome')   
-                     
+                request.session['USID']=user.id
+                return redirect('userhome')           
         else:
             print("hi3")
             messages.info(request,'invalid username or password.Try again!')
             return redirect('admin_log')
-                   
-
        # messages.info(request, 'Invalid username or password')
     print("hi4")
     return redirect('admin_log')
@@ -225,18 +297,34 @@ def admin_login(request):
 
 
 def userhome(request):
-    new=Product.objects.filter(category=2)
-    special=Product.objects.filter(category=1)
-    feature=Product.objects.filter(id=2)
-    return render(request, 'new_index2.html',{'new':new,'sp':special,'fea':feature})
+    if 'USID' in request.session: 
+       new=Product.objects.all().order_by('-id')[:3]
+       special=Product.objects.all().order_by('id')[:3]
+       feature=Product.objects.all().order_by('id')[3:6]
+       count_a=Product.objects.filter(category_id=1).count()
+       count_b=Product.objects.filter(category_id=4).count()
+       count_c=Product.objects.filter(category_id=5).count()
+       count_d=Product.objects.filter(category_id=6).count()
+       count_e=Product.objects.filter(category_id=7).count()
+       count_f=Product.objects.filter(category_id=8).count()
+       return render(request, 'new_index2.html',{'new':new,'sp':special,'fea':feature,'count_b':count_b,'count_c':count_c,'count_d':count_d,'count_e':count_e,'count_f':count_f,'count_a':count_a})
+    return redirect('user_logout')
 
 
 def admin_dashboard(request):
-    abc= request.session["uid"]
-    adm=User.objects.filter(id= abc)
-    users = User.objects.all().count()
-    models = Product.objects.all().count()
-    return render(request, 'admin_dashboard.html',{'adm': adm, 'users': users, 'models': models,})
+    if request.session.has_key('admid'):
+        abc= request.session['admid']
+        adm=User.objects.filter(id=abc)
+        users = User.objects.all().count()
+        models = Product.objects.all().count()
+        return render(request, 'admin_dashboard.html',{'adm': adm, 'users': users, 'models': models,})
+    return redirect('user_logout')
+
+
+def admin_log(request):
+    it = categories.objects.all()
+    request.session.flush()
+    return render(request, 'admin_log.html',{'it':it})
 
 # def admin_dashboard(request):
 #     if 'admid' in request.session:
@@ -252,13 +340,8 @@ def admin_dashboard(request):
 #         return redirect('/')
 
 def user_logout(request):
-    if 'SAdm_id' in request.session:
-        request.session.flush()
-        return redirect('home')
-    else:
-        return redirect('home')
-
-
+    request.session.flush()
+    return redirect('admin_log')
 
 
 def buyNow(request, id):
@@ -355,11 +438,6 @@ def sub(request, id):
     return render(request, 'sub.html', {'subcate':subcate,'it':it,'data':data,'cartItems':cartItems,'member':member,'products':products,'sub':sub1,'man': man, 'man1': man1})
 
 
-def admin_log(request):
-    it = categories.objects.all()
-
-    return render(request, 'admin_log.html',{'it':it})
-
 def Signup_emailval(request):
     email = request.GET.get('email', None)
  
@@ -398,14 +476,7 @@ def registration(request):
 
 
 
-def user_logout(request):
-    if 'SAdm_id' in request.session:
-        request.session.flush()
-        it = categories.objects.all()
-        return render(request, 'new_index.html',{'it': it})
-    else:
-        it = categories.objects.all()
-        return render(request, 'new_index.html',{'it': it})
+
 
 def admin_logout(request):
     if 'admid' in request.session:
@@ -576,7 +647,7 @@ def admin_models(request):
 
 
 def addmodel(request):
-    abc= request.session["uid"]
+    abc= request.session["admid"]
     adm=User.objects.filter(id= abc)
     var = categories.objects.all()
     return render(request, "addmodel.html", {'var': var,'adm':adm})
@@ -632,10 +703,10 @@ def payment_table(request):
 
 
 def registeredusers(request):
-    abc= request.session["uid"]
-    adm=User.objects.filter(id= abc)
+    abc= request.session["admid"]
+    adm=User.objects.filter(id=abc)
     
-    use = User.objects.all()
+    use = User.objects.filter(is_superuser=0)
     return render(request, 'registeredusers.html', {'use': use,'adm':adm})
     
 

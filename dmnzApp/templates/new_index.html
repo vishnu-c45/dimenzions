@@ -19,7 +19,14 @@
             </div>
             <script>
                 const tap=()=>{
-                    alert('please login')
+                    var a=confirm('please login')
+                    if(a==false){
+                        event.preventDefault()
+                    }    
+                    else if(a==true){
+                        window.location.href='{% url "admin_log" %}'
+                    
+                    }
                 }
             </script>
         </div>
@@ -597,7 +604,7 @@
                 </div>
             </div>
             <div class="cards-list">
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'model_two'%}"
                      style="background-image: url('{% static 'images/car-777159_960_720.jpg'%}'); ">
                     <div class="dark1 flex flex-column">
                         <h4 class="text-light">
@@ -608,7 +615,7 @@
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'model_two'%}"
                 style="background-image: url('{% static 'images/Moon-Photoshop.jpg'%}'); ">
                
                     <div class="dark1 flex flex-column">
@@ -620,7 +627,7 @@
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'model_two'%}"
                 style="background-image: url('{% static 'images/1642762135_resized-image.jpg'%}'); ">
                  
                     <div class="dark1 flex flex-column">
@@ -632,7 +639,7 @@
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'model_two'%}"
                 style="background-image: url('{% static 'images/RoomSketcher-High-Quality-3D-Floor-Plans.jpg'%}'); ">
                      
                     <div class="dark1 flex flex-column">
@@ -644,7 +651,7 @@
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'model_two'%}"
                 style="background-image: url('{% static 'images/b-letter-boutique-logo-design-159417325.jpg'%}'); ">
                
                     <div class="dark1 flex flex-column">
@@ -656,7 +663,7 @@
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'model_two'%}"
                 
                 style="background-image: url('{% static 'images/images (6) 1.png'%}'); ">
  

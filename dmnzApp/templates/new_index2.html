@@ -177,7 +177,7 @@
                  aria-labelledby="home-tab">
                 <div class="cards-list">
                     {% for p in new %}
-                    <a href="{% url 'view_items' p.id user.id %}">
+                    <a href="{% url 'view_items' p.id  %}">
                    
                     <div onclick="tap()"
                        class="card1 bg-light shadow-lg"
@@ -218,7 +218,7 @@
                  aria-labelledby="profile-tab">
                 <div class="cards-list container">
                     {% for p in sp %}
-                    <a href="{% url 'view_items' p.id user.id %}">
+                    <a href="{% url 'view_items' p.id  %}">
                     <div onclick="tap()"
                       class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
                         <div class="card border-0 "  style="height: 100%; width:100%;">
@@ -263,7 +263,7 @@
                  aria-labelledby="contact-tab">
                 <div class="cards-list container">
                     {% for p in new %}
-                    <a href="{% url 'view_items' p.id user.id %}">
+                    <a href="{% url 'view_items' p.id  %}">
                     <div onclick="tap()"
                       class="card1 shadow-lg" data-aos="fade-up" data-aos-delay="50">
                         <div class="card border-0 " style="height: 100%; width:100%;">
@@ -306,7 +306,7 @@
                  aria-labelledby="contact-tab">
                 <div class="cards-list">
                     {% for p in fea %}
-                    <a href="{% url 'view_items' p.id user.id %}">
+                    <a href="{% url 'view_items' p.id  %}">
                     <div onclick="tap()"
                      class="card1  shadow-lg" data-aos="fade-up" data-aos-delay="50">
                         <div class="card border-0 " style="height: 100%; width:100%;">
@@ -608,11 +608,11 @@
                             3D ARTISTS
                         </h4>
                         <p style="color: gray;">
-                            300 Products
+                            {{count_a}}
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'photoshop' %}"
                 style="background-image: url('{% static 'images/Moon-Photoshop.jpg'%}'); ">
                
                     <div class="dark1 flex flex-column">
@@ -620,11 +620,11 @@
                             PHOTOSHOP
                         </h4>
                         <p style="color: gray;">
-                            300 Products
+                            {{count_b}} Products
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'ui_design' %}"
                 style="background-image: url('{% static 'images/1642762135_resized-image.jpg'%}'); ">
                  
                     <div class="dark1 flex flex-column">
@@ -632,11 +632,11 @@
                             UI DESIGN
                         </h4>
                         <p style="color: gray;">
-                            300 Products
+                            {{count_c}}
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'house_plans'%}"
                 style="background-image: url('{% static 'images/RoomSketcher-High-Quality-3D-Floor-Plans.jpg'%}'); ">
                      
                     <div class="dark1 flex flex-column">
@@ -644,11 +644,11 @@
                             HOUSE PLANS
                         </h4>
                         <p style="color: gray;">
-                            300 Products
+                            {{count_d}}
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'logo_creation'%}"
                 style="background-image: url('{% static 'images/b-letter-boutique-logo-design-159417325.jpg'%}'); ">
                
                     <div class="dark1 flex flex-column">
@@ -656,11 +656,11 @@
                             LOGO CREATION
                         </h4>
                         <p style="color: gray;">
-                            300 Products
+                            {{count_e}}
                         </p>
                     </div>
                 </a>
-                <a class="card3" href="{% url 'model'%}"
+                <a class="card3" href="{% url 'drawings'%}"
                 
                 style="background-image: url('{% static 'images/images (6) 1.png'%}'); ">
  
@@ -669,7 +669,7 @@
                             DRAWINGS 
                         </h4>
                         <p style="color: gray;">
-                            300 Products
+                            {{count_f}}
                         </p>
                     </div>
                 </a>

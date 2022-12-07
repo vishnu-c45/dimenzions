@@ -4,7 +4,7 @@
     <section class="banner">
         <div class="inner">
             <b>
-                <h1 class="text-light headtext text-center px-5 px-lg-0">3D PRINTABLE SPARE  <span style="color: rgb(255, 5, 72);">PARTS CHALLENGE</span>
+                <h1 class="text-light headtext text-center px-5 px-lg-0">3D PRINTABLE SPARE  <span style="color: rgb(255, 5, 72);">PARTS CHALLENGE </span>
                 </h1>
             </b>
             <b>
@@ -15,7 +15,7 @@
         <style>
             .banner {
                 height: 50vh;
-                background-image: url('{% static 'images/assn.png' %}');
+                background-image: url('{% static "images/assn.png" %}');
                 background-size: 100% 100%;
 
                 background-attachment: fixed;
@@ -37,6 +37,10 @@
                 justify-content: center;
                 flex-direction: column;
             }
+            .pic{
+                
+                max-height: 350px;
+            }
 
             @media only screen and (max-width:800px) {
 
@@ -51,6 +55,7 @@
 
 
                 }
+             
             }
         </style>
     </section>
@@ -63,13 +68,13 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{std.gib.url}}" class="d-block w-100" alt="...">
+                            <img src="{{std.gib.url}}" class="pic d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{std.gib.url}}" class="d-block w-100" alt="...">
+                            <img src="{{std.gib.url}}" class="pic d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{std.gib.url}}" class="d-block w-100" alt="...">
+                            <img src="{{std.gib.url}}" class="pic d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -87,14 +92,14 @@
 
                 <div class="row p-3">
                     <div class="col-4 flex px-2">
-                        <img class="img-fliud" src="{{std.gib.url}}" alt="" width="98%" height="100%">
+                        <img class="img-fliud" src="{{std.gib.url}}" alt="" width="100%" height="100%">
                     </div>
                     <div class="col-4 flex  px-2">
                         <img class="img-fliud" src="{{std.gib.url}}" alt="" width="100%" height="">
                     </div>
 
                     <div class="col-4 flex  px-2">
-                        <img class="img-fliud" src="{{std.gib.url}}" alt="" width="98%" height="">
+                        <img class="img-fliud" src="{{std.gib.url}}" alt="" width="100%" height="">
                     </div>
                 </div>
 
@@ -236,20 +241,76 @@
                 </div> {% endcomment %}
 
                 <div class="row p-3">
-                    <div class="col-lg-4 flex mb-2  ">
-                        <a href="#" class="btn btn-danger px-5 py-2 w-100" style="font-weight: 600;"> Buy Nows</a>
+                     <div class="col-lg-3 flex mb-2  ">
+                        {% comment %} <a href="#" class="btn btn-danger px-5 py-2 w-100" style="font-weight: 600;"> Buy Now</a> {% endcomment %}
+                    </div> 
+                    <div class="col-lg-6 flex  mb-2 ">
+                        <a type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger text-white btn-outline-dark px-5 py-2 w-100"style="font-weight: 600;">Request</a>
                     </div>
-                    <div class="col-lg-4 flex  mb-2 ">
-                        <a href="{%url 'cartitem' std.id %}" class="btn btn-outline-dark px-5 py-2 w-100"style="font-weight: 600;"> Add Cart</a>
-                    </div>
-                    <div class="col-lg-4 flex ">
+                    {% comment %} <div class="col-lg-4 flex ">
                         <a href="{%url 'contact'%}" class="btn btn-outline-dark px-5 py-2 w-100"style="font-weight: 600;"> Contact </a>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
 
         </div>
         </div>
+
+        <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">REQUEST FORM</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <form action=""  autocomplete="off">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" name="name" value="{{u.username}}" autocomplete="off"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              
+              </div>
+
+             
+
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Address</label>
+                <textarea type="text" name="address"  class="form-control" autocomplete="off" id="exampleInputPassword1"></textarea>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Phone number</label>
+                <input type="number" name="phone" class="form-control" autocomplete="off" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Email</label>
+                <input type="email" name="email" value="{{u.email}}" class="form-control" autocomplete="off" id="exampleInputPassword1">
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Description</label>
+                <textarea type="text" name="desc" class="form-control" autocomplete="off" id="exampleInputPassword1"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+             
+         </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+
         <script>
             function increment() {
                 document.getElementById('demoInput').stepUp();
@@ -382,7 +443,7 @@
             }
 
             .nav-tabs .nav-item .nav-link {
-                background-color: white color: gray;
+                background-color: white color;
             }
 
             .nav-tabs .nav-item .nav-link.active {

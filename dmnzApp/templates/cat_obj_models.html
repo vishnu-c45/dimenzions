@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
 {% block body %}
     <section class="banner">
@@ -186,7 +186,7 @@
         <div class="cards-list container">
 
             {% for p in three %}
-            <a href="{% url 'view_items' p.id user.id %}"
+            <a href="{% url 'view_items' p.id  %}"
             class="card1 bg-light shadow-lg"
             data-aos="fade-up"
             data-aos-delay="50">

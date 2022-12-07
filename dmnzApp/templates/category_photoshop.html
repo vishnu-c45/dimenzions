@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
 {% block body %}
     <section class="banner">
         <div class="inner">
             <b>
                 <h3 class="text-light headtext" style="font-family: '', sans-serif; ">
-                    <span style="color: rgb(255, 5, 72);">3D</span> ARTISTS
+                    <span style="color: rgb(255, 5, 72);">PHOTO</span>SHOPS
                 </h3>
             </b>
         </div>
@@ -18,6 +18,9 @@
                 background-attachment: fixed;
 
 
+            }
+            li{
+                cursor: pointer;
             }
 
             .headtext {
@@ -34,6 +37,12 @@
                 justify-content: center;
                 flex-direction: column;
             }
+            #low{
+                display: none;
+            }
+            #high{
+                display: none;
+            }
 
             @media all and (max-width: 500px) {
                 .banner {
@@ -46,7 +55,26 @@
                     font-size: 30px;
                 }
             }
+
         </style>
+
+        <script>
+
+            const price_low=()=>{
+                document.getElementById('low').style.display='flex';
+                document.getElementById('all').style.display='none';
+                document.getElementById('high').style.display='none';
+            }
+
+            const price_high=()=>{
+                document.getElementById('low').style.display='none';
+                document.getElementById('all').style.display='none';
+                document.getElementById('high').style.display='flex';
+            }
+
+        </script>
+
+
     </section>
     <section class="dropdowns container">
         <nav class="navbar navbar-expand-lg navbar-light mt-3">
@@ -76,16 +104,16 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="{% url 'price_low' %}">low to high</a>
+                                        <a class="dropdown-item" onclick="price_low()">low to high</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{% url 'price_high' %}">High to low</a>
+                                        <a class="dropdown-item" onclick="price_high()" >High to low</a>
                                     </li>
                                     
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
+                        {% comment %} <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
                             <div class="dropdown">
                                 <a class="btn btn-outline-secondary abc"
                                    href="#"
@@ -112,7 +140,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> {% endcomment %}
                         <!-- <li class="nav-item mt-3 mt-lg-0 ps-lg-3">
                             <div class="dropdown">
                                 <a class="btn btn-outline-secondary abcd"
@@ -185,11 +213,14 @@
             }
         </style>
     </section>
-    <section class="products ">
+    <section class="products " id="all" >
         <div class="cards-list container">
             {% for p in all %}
-          
-            <div class="card3 shadow " onclick="tap()" id="all"
+            <a href="{% url 'view_items' p.id  %}"
+                    class="card1 bg-light shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="50">
+            <div class="card3 shadow " onclick="clicked()" id="all"
                  style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
                 <div class="black_fillter">
                     <div class="frame pt-1">
@@ -219,24 +250,11 @@
                     </div>
                 </div>
             </div>
-           
+           </a>
             
             {% endfor %}
          
             <!-- category ......3dx -->
-
-            <script>
-                const tap=()=>{
-                    var a=confirm('please login')
-                    if(a==false){
-                        event.preventDefault()
-                    }    
-                    else if(a==true){
-                        window.location.href='{% url "admin_log" %}'
-                    
-                    }
-                }
-            </script>
 
           
         <div class="row my-3">
@@ -373,4 +391,373 @@
       } */
         </style>
     </section>
+
+
+
+
+    <section class="products " id="low" >
+        <div class="cards-list container">
+            {% for p in three %}
+            <a href="{% url 'view_items' p.id  %}"
+                    class="card1 bg-light shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="50">
+            <div class="card3 shadow " onclick="clicked()" id="all"
+                 style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">3D</h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">{{p.modelname}}</h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">{{p.price}}$</h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">Details</div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </a>
+            
+            {% endfor %}
+         
+            <!-- category ......3dx -->
+
+          
+        <div class="row my-3">
+            <div class="col-3">
+            </div>
+            <div class="col-9 flex">
+                <a class="btn text-light next w-100 "
+                   style="background-color: rgba(255, 5, 72);">
+                    Load more
+                </a>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+
+
+       
+        <style>
+            .flex{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            /* frame */
+            .black_fillter {
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 100%;
+                height: 100%;
+            }
+
+            .frame {
+                opacity: 0%;
+                height: 100%;
+                width: 100%;
+            }
+
+            .card3:hover .frame  ,.card3:hover .black_fillter{
+                background-color: rgba(0, 0, 0, 0.15);
+                opacity: 100%;
+                transition: opacity 1s;
+
+            }
+
+            .top {
+                background-color: white;
+                height: 13%;
+                width: 100%;
+            }
+
+            .center {
+                height: 74%;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                align-items: flex-start;
+            }
+            .center button{
+                background-color: rgba(0, 0, 0, 0);
+                height: auto;
+                width: auto;
+                border: none;
+                color: rgb(255, 5, 72);
+                 font-size: 30px;
+            }
+
+            .bottom {
+                background-color: white;
+                height: 13%;
+                width: 100%;
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .card3 {
+                margin: 30px auto;
+                width: 400px;
+                height: 320px;
+
+
+                cursor: pointer;
+                transition: 0.4s;
+            }
+            .hide{
+                display: none;
+            }
+
+
+
+
+            @media all and (max-width: 800px) {
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+
+                .card3 {
+
+                    width:100%;
+                    height: 250px;
+                }
+
+                .card3 .card_title p {
+
+                    margin-top: -100px;
+                }
+
+            }
+
+
+            /* .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 40px;
+        background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-repeat: no-repeat;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        transition: 0.4s;
+      } */
+        </style>
+    </section>
+
+    <!-- category proice high to low -->
+
+    <section class="products " id="high" >
+        <div class="cards-list container">
+            {% for p in high_to %}
+            <a href="{% url 'view_items' p.id  %}"
+                    class="card1 bg-light shadow-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="50">
+            <div class="card3 shadow " onclick="clicked()" id="all"
+                 style="background-image: url('{{p.gib.url}}');background-size: 100% 100%; background-repeat: no-repeat;">
+                <div class="black_fillter">
+                    <div class="frame pt-1">
+                        <div class="top row container-fluid p-0 m-0 shadow">
+                            <div class="col-3 flex">
+                                <h6 class="m-0" style="font-weight: 800;">3D</h6>
+                            </div>
+                            <div class="col-6 flex">
+                                <h6 class="m-0"style="font-weight: 800;">{{p.modelname}}</h6>
+                            </div>
+                            <div class="col-3 flex">
+                                <h6 class="m-0"style="font-weight: 800;">{{p.price}}$</h6>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button class="p-2">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="bottom shadow row container-fluid p-0 m-0"
+                             style="color: rgb(255, 5, 72);">
+                            <div class="col-10 flex" style="font-weight: 800;">Details</div>
+                            <div class="col-2 flex">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </a>
+            
+            {% endfor %}
+         
+            <!-- category ......3dx -->
+
+          
+        <div class="row my-3">
+            <div class="col-3">
+            </div>
+            <div class="col-9 flex">
+                <a class="btn text-light next w-100 "
+                   style="background-color: rgba(255, 5, 72);">
+                    Load more
+                </a>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+
+
+       
+        <style>
+            .flex{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            /* frame */
+            .black_fillter {
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 100%;
+                height: 100%;
+            }
+
+            .frame {
+                opacity: 0%;
+                height: 100%;
+                width: 100%;
+            }
+
+            .card3:hover .frame  ,.card3:hover .black_fillter{
+                background-color: rgba(0, 0, 0, 0.15);
+                opacity: 100%;
+                transition: opacity 1s;
+
+            }
+
+            .top {
+                background-color: white;
+                height: 13%;
+                width: 100%;
+            }
+
+            .center {
+                height: 74%;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                align-items: flex-start;
+            }
+            .center button{
+                background-color: rgba(0, 0, 0, 0);
+                height: auto;
+                width: auto;
+                border: none;
+                color: rgb(255, 5, 72);
+                 font-size: 30px;
+            }
+
+            .bottom {
+                background-color: white;
+                height: 13%;
+                width: 100%;
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .card3 {
+                margin: 30px auto;
+                width: 400px;
+                height: 320px;
+
+
+                cursor: pointer;
+                transition: 0.4s;
+            }
+            .hide{
+                display: none;
+            }
+
+
+
+
+            @media all and (max-width: 800px) {
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+
+                .card3 {
+
+                    width:100%;
+                    height: 250px;
+                }
+
+                .card3 .card_title p {
+
+                    margin-top: -100px;
+                }
+
+            }
+
+
+            /* .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 40px;
+        background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-repeat: no-repeat;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        transition: 0.4s;
+      } */
+        </style>
+    </section>
+
+
+
+
+
+
 {% endblock %}
